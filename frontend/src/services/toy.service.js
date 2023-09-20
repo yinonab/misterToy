@@ -96,7 +96,7 @@ function _createToys() {
                 _id:utilService.makeId(),
                 name:utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels:[utilService.makeLabel().split(',').join],
+                labels:[utilService.makeLabel().join(',')],
                 createdAt:utilService.getTimeFromStamp(),
                 inStock:true
 
