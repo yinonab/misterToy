@@ -16,7 +16,7 @@ export function ToyIndex(){
     const filterBy  = useSelector(storeState => storeState.toyModule.filterBy)
 
     useEffect(() => {
-        console.log('filterBy:', filterBy)
+        // console.log('filterBy:', filterBy)
         loadToys()
         .catch(err => {
             console.log('err:', err)

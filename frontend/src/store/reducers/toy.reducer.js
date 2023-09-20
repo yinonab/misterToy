@@ -4,6 +4,7 @@ export const SET_TOYS = 'SET_TOYS'
 export const REMOVE_TOY = 'REMOVE_TOY'
 export const ADD_TOY = 'ADD_TOY'
 export const UPDATE_TOY = 'UPDATE_TOY'
+
 export const FILTER_TODO = 'FILTER_TODO'
 export const SET_PAGE_IDX = 'SET_PAGE_IDX'
 

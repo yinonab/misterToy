@@ -5,11 +5,10 @@ import { store } from "../store";
 
 export function loadToys() {
     const { filterBy } = store.getState().toyModule
-    console.log('filterBy', filterBy);
+    // console.log('filterBy', filterBy)
     return toyService.query(filterBy)
         .then(toys => {
             store.dispatch({ type: SET_TOYS, toys })
-            console.log('toys', toys);
         })
         .catch(err => {
             console.log('toy action -> Cannot load toys', err)

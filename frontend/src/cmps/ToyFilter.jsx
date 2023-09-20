@@ -7,15 +7,20 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))
     useEffect(() => {
-        // update father cmp that filters change very type
         onSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
     function handleChange({ target }) {
         let { value, name: field, type } = target
-        value = (type === 'number') ? (+value || '') : value
-        console.log('target:', target)
-        console.log('value:', value)
+        if (field === 'inStock' && value === '') {
+            value = ''
+        } else if (type === 'select-one') {
+            value = value === 'true'
+        } else if (type === 'number') {
+            value = +value || ''
+        }
+        // value = (type === 'number') ? (+value || '') : value
+        // console.log('value:', value)
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 

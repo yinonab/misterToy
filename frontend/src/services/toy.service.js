@@ -31,27 +31,29 @@ _createToys()
 // }
 
 function query(filterBy = {}) {
-    console.log('hi');
     return storageService.query(STORAGE_KEY).then(toys => {
 
         let toyToDisplay = [...toys]
-        console.log('toyToDisplay txt', toyToDisplay)
+        // console.log('toyToDisplay', toyToDisplay)
 
         if (filterBy.txt) {
             const regExp = new RegExp(filterBy.txt, 'i')
             toyToDisplay = toyToDisplay.filter(toy => regExp.test(toy.name))
-            console.log('toyToDisplay txt', toyToDisplay)
+            // console.log('toyToDisplay txt', toyToDisplay)
         }
         if (filterBy.inStock !== undefined) {
-            toyToDisplay = toyToDisplay.filter(toy => toy.inStock === filterBy.inStock);
-            console.log('toyToDisplay inStock', toyToDisplay);
+            if (filterBy.inStock === true) {
+                toyToDisplay = toyToDisplay.filter(toy => toy.inStock === true)
+            } else if (filterBy.inStock === false) {
+                toyToDisplay = toyToDisplay.filter(toy => toy.inStock === false)
+            }
         }
         if (filterBy.labels && filterBy.labels.length > 0) {
             toyToDisplay = toyToDisplay.filter(toy => {
                 return toy.labels.some(label => filterBy.labels.includes(label));
             });
         }
-        
+
         // return axios.get(BASE_URL).then(res => res.data)
         return toyToDisplay
     })
