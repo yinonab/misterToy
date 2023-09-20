@@ -3,8 +3,9 @@ import { Provider } from 'react-redux'
 import { store } from './store/store'
 import './assets/style/main.css'
 import { ToyIndex } from './pages/ToyIndex'
-import { ToyDetails } from './pages/ToyDetails'
 import { AppHeader } from './cmps/AppHeader'
+import { HomePage } from './pages/HomePage'
+import { ToyDetails } from './pages/ToyDetails'
 
 export function App() {
 
@@ -15,7 +16,7 @@ export function App() {
                   <AppHeader />
                   <main>
                       <Routes>
-                          {/* { <Route element={<HomePage />} path="/" />} */}
+                           <Route element={<HomePage />} path="/" />
                           {/* {<Route element={<AboutUs />} path="/about" /> } */}
                           <Route element={<ToyIndex />} path="/toy" /> 
                           <Route element={<ToyDetails />} path="/toy/:toyId" /> 
