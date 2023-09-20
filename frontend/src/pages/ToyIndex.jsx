@@ -2,7 +2,12 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
+
 import { ToyFilter } from '../cmps/ToyFilter'
+
+import { ToyList } from '../cmps/ToyList'
+import { toyService } from '../services/toy.service'
+
 
 export function ToyIndex(){
     const { toys } = useSelector(storeState => storeState.toyModule)
@@ -41,8 +46,8 @@ export function ToyIndex(){
 
     
     function onEditToy(toy) {
-        const price = +prompt('New price?', car.price)
-        const toyToSave = { ...car, price }
+        const price = +prompt('New price?', toy.price)
+        const toyToSave = { ...toy, price }
         saveToy(toyToSave)
             .then(savedToy => {
                 showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
@@ -59,6 +64,12 @@ export function ToyIndex(){
             <main>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter}/>
                 <button onClick={onAddToy}>add Toy 🧸</button>
+
+                <ToyList
+                toys={toys}
+                onRemoveToy={onRemoveToy}
+                onEditToy={onEditToy}
+                />
             </main>
         </div>
     )
