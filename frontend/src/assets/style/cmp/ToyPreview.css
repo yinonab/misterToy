@@ -27,7 +27,7 @@
   
   .toy-details {
     text-decoration: none;
-    color: #007bff;
+    color: var(--clr2);
     font-weight: bold;
   }
   

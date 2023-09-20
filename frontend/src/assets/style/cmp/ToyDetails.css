@@ -1,0 +1,66 @@
+.toy-details {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f7f7f7;
+}
+
+.toy-name-details {
+    color: var(--clr32);
+    font-size: 24px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.toy-price-details {
+    font-size: 18px;
+    color: var(--clr3);
+    font-family: 'Righteous', cursive;
+
+}
+
+.toy-created-date {
+    font-size: 16px;
+    color: #555;
+    font-family: 'Righteous', cursive;
+
+}
+
+.toy-labels {
+    font-size: 16px;
+    color: #555;
+    font-family: 'Righteous', cursive;
+
+}
+
+.toy-emoji {
+    font-size: 36px;
+}
+
+.toy-description-heading {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    font-family: 'Righteous', cursive;
+
+}
+
+.toy-description {
+    font-size: 16px;
+    color: #666;
+    font-family: 'Indie Flower', cursive;
+
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: var(--clr5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.back-link:hover {
+    background-color: var(--clr6);
+}
