@@ -45,4 +45,13 @@ export function ToyIndex(){
                 showErrorMsg('Cannot update toy')
             })
     }
+
+    return(
+        <div>
+            <h3>Toys App</h3>
+            <main>
+                <button onClick={onAddToy}>add Toy 🧸</button>
+            </main>
+        </div>
+    )
 }
