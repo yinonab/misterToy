@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
+import { ToyList } from '../cmps/ToyList'
 
 export function ToyIndex(){
     const { toys } = useSelector(storeState => storeState.toyModule)
@@ -52,6 +53,12 @@ export function ToyIndex(){
             <h3>Toys App</h3>
             <main>
                 <button onClick={onAddToy}>add Toy 🧸</button>
+
+                <ToyList
+                toys={toys}
+                onRemoveToy={onRemoveToy}
+                onEditToy={onEditToy}
+                />
             </main>
         </div>
     )
