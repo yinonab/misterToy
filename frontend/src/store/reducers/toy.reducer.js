@@ -1,3 +1,4 @@
+import { toyService } from "../../services/toy.service"
 
 export const SET_TOYS = 'SET_TOYS'
 export const REMOVE_TOY = 'REMOVE_TOY'
@@ -8,7 +9,7 @@ export const SET_PAGE_IDX = 'SET_PAGE_IDX'
 
 const initialState = {
     toys: [],
-    filterBy: { txt: '', inStock: undefined, pageIdx: 0 }
+    filterBy: toyService.getDefaultFilter()
 }
 
 
