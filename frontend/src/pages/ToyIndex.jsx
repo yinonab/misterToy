@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
 
@@ -7,14 +7,21 @@ import { ToyFilter } from '../cmps/ToyFilter'
 
 import { ToyList } from '../cmps/ToyList'
 import { toyService } from '../services/toy.service'
+import { FILTER_TODO } from '../store/reducers/toy.reducer'
 
 
 export function ToyIndex(){
+    const dispatch = useDispatch()
     const { toys } = useSelector(storeState => storeState.toyModule)
-    const { filterBy } = useSelector(storeState => storeState.todoModule)
+    const filterBy  = useSelector(storeState => storeState.toyModule.filterBy)
 
     useEffect(() => {
+        console.log('filterBy:', filterBy)
         loadToys()
+        .catch(err => {
+            console.log('err:', err)
+            showErrorMsg('Cannot load toys')
+        })
     }, [filterBy])
 
     function onRemoveToy(toyId) {
@@ -41,7 +48,7 @@ export function ToyIndex(){
     }
 
     function onSetFilter(filterBy) {
-        dispatch({ type: SET_FILTER_BY, filterBy })
+        dispatch({ type: FILTER_TODO, filterBy })
     }
 
     
