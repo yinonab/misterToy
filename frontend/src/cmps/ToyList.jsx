@@ -8,8 +8,12 @@ export function ToyList({ toys, onRemoveToy, onEditToy }) {
                 <li className="toy-preview" key={toy._id}>
                     <ToyPreview toy={toy} />
                     <div>
-                        <button onClick={() => onRemoveToy(toy._id)}>x</button>
-                        <button onClick={() => onEditToy(toy)}>Edit</button>
+                        <button className="remove-btn" onClick={() => onRemoveToy(toy._id)}>
+                        <i className="fa-solid fa-trash"></i>
+                        </button>
+                        <button className="edit-btn" onClick={() => onEditToy(toy)}>
+                        <i className="fa-solid fa-pen-to-square"></i>
+                        </button>
                     </div>
                 </li>
             )}

@@ -1,0 +1,37 @@
+.toy-article {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .toy-name {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .toy-emoji {
+    font-size: 36px;
+  }
+  
+  .toy-price {
+    font-size: 16px;
+  }
+  
+  .toy-price span {
+    font-weight: bold;
+    color: #007bff;
+    font-family: 'Indie Flower', cursive;
+    
+  }
+  
+  .toy-details {
+    text-decoration: none;
+    color: var(--clr2);
+    font-weight: bold;
+  }
+  
+  .toy-details:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }

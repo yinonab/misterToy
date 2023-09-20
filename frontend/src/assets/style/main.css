@@ -1,6 +1,12 @@
-@import 'index.css';
-
+/* Setup */
+@import'./setup/vars.css';
+@import'./setup/typography.css';
 
 /* cmp */
-
+@import'./cmp/ToyDetails.css';
+@import'./cmp/ToyPreview.css';
+@import'./cmp/ToyList.css';
+@import'./cmp/ToyIndex.css';
+@import'./cmp/AppHeader.css';
+@import'./cmp/HomePage.css';
 @import './cmp/UserMsg.css';

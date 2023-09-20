@@ -1,0 +1,15 @@
+.home-section {
+    /* background-color: lightgray; */
+    padding: 20px;
+    text-align: center;
+}
+
+.home-section h2{
+    color: var(--clr1); 
+    font-family: 'Righteous', cursive;
+}
+
+.home-section img {
+    max-width: 100%;
+    height: auto;
+}
