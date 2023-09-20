@@ -12,7 +12,7 @@ export function ToyList({ toys, onRemoveToy, onEditToy }) {
                         <i className="fa-solid fa-trash"></i>
                         </button>
                         <button className="edit-btn" onClick={() => onEditToy(toy)}>
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i className="fa-solid fa-pen-to-square"></i>
                         </button>
                     </div>
                 </li>

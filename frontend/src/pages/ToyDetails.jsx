@@ -22,7 +22,8 @@ export function ToyDetails() {
             navigate('/toy')
         })
     }
-    if (!toy) return <div>Loading...</div>
+    if (!toy) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
+
     console.log('toy.labels', toy.labels);
     return (
         <section className="toy-details">
