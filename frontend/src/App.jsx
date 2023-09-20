@@ -4,6 +4,7 @@ import { store } from './store/store'
 import './assets/style/main.css'
 import { ToyIndex } from './pages/ToyIndex'
 import { AppHeader } from './cmps/AppHeader'
+import { HomePage } from './pages/HomePage'
 
 export function App() {
 
@@ -14,7 +15,7 @@ export function App() {
                   {<AppHeader /> }
                   <main>
                       <Routes>
-                          {/* { <Route element={<HomePage />} path="/" />} */}
+                           <Route element={<HomePage />} path="/" />
                           {/* {<Route element={<AboutUs />} path="/about" /> } */}
                           { <Route element={<ToyIndex />} path="/toy" /> }
                           {/* <Route element={<ContactIndex  />} path="/contact" />
