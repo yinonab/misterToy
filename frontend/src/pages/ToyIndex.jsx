@@ -2,15 +2,20 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
+
+import { ToyFilter } from '../cmps/ToyFilter'
+
 import { ToyList } from '../cmps/ToyList'
 import { toyService } from '../services/toy.service'
 
+
 export function ToyIndex(){
     const { toys } = useSelector(storeState => storeState.toyModule)
+    const { filterBy } = useSelector(storeState => storeState.todoModule)
 
     useEffect(() => {
         loadToys()
-    }, [])
+    }, [filterBy])
 
     function onRemoveToy(toyId) {
         removeToy(toyId)
@@ -35,6 +40,10 @@ export function ToyIndex(){
             })
     }
 
+    function onSetFilter(filterBy) {
+        dispatch({ type: SET_FILTER_BY, filterBy })
+    }
+
     
     function onEditToy(toy) {
         const price = +prompt('New price?', toy.price)
@@ -53,6 +62,7 @@ export function ToyIndex(){
         <div className="div-container">
             <h3 className="custom-h3">Toys App</h3>
             <main className="custom-main">
+                <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter}/>
                 <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
                 toys={toys}
