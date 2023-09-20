@@ -50,11 +50,10 @@ export function ToyIndex(){
     }
 
     return(
-        <div>
-            <h3>Toys App</h3>
-            <main>
-                <button onClick={onAddToy}>add Toy 🧸</button>
-
+        <div className="div-container">
+            <h3 className="custom-h3">Toys App</h3>
+            <main className="custom-main">
+                <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
                 toys={toys}
                 onRemoveToy={onRemoveToy}
