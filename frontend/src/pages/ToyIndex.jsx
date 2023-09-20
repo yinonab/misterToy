@@ -11,19 +11,19 @@ export function ToyIndex(){
     }, [])
 
     function onRemoveToy(toyId) {
-        removeToyy(toyId)
+        removeToy(toyId)
             .then(() => {
                 showSuccessMsg('toy removed')
             })
             .catch(err => {
                 console.log('Cannot remove toy', err)
-                showErrorMsgg('Cannot remove toy')
+                showErrorMsg('Cannot remove toy')
             })
     }
 
     function onAddToy() {
         const toyToSave = toyService.getEmptyToy()
-        saveToyy(toyToSave)
+        saveToy(toyToSave)
             .then(savedToy => {
                 showSuccessMsg(`Toy added (id: ${savedToy._id})`)
             })

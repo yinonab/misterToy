@@ -14,7 +14,7 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+
 }
 _createToys()
 
@@ -74,11 +74,12 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        name:utilService.makeLorem(),
+
+        name: utilService.makeLorem(),
         price: utilService.getRandomIntInclusive(1000, 9000),
-        labels:[utilService.makeLabel().split(',').join],
-        createdAt:utilService.getTimeFromStamp(),
-        inStock:true
+        labels: [utilService.makeLabel()].join(','),
+        createdAt: utilService.getTimeFromStamp(Date.now()),
+        inStock: true
     }
 }
 
@@ -93,30 +94,30 @@ function _createToys() {
     if (!toys || !toys.length) {
         toys = [
             {
-                _id:utilService.makeId(),
-                name:utilService.makeLorem(),
+                _id: utilService.makeId(),
+                name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels:[utilService.makeLabel().join(',')],
-                createdAt:utilService.getTimeFromStamp(),
-                inStock:true
+                labels: [utilService.makeLabel()].join(','),
+                createdAt: utilService.getTimeFromStamp(Date.now()),
+                inStock: true
 
             },
             {
-                _id:utilService.makeId(),
-                name:utilService.makeLorem(),
+                _id: utilService.makeId(),
+                name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels:[utilService.makeLabel().split(',').join],
-                createdAt:utilService.getTimeFromStamp(),
-                inStock:true
+                labels: [utilService.makeLabel()].join(','),
+                createdAt: utilService.getTimeFromStamp(Date.now()),
+                inStock: true
 
             },
             {
-                _id:utilService.makeId(),
-                name:utilService.makeLorem(),
+                _id: utilService.makeId(),
+                name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels:[utilService.makeLabel().join(',')],
-                createdAt:utilService.getTimeFromStamp(),
-                inStock:true
+                labels: [utilService.makeLabel()].join(','),
+                createdAt: utilService.getTimeFromStamp(Date.now()),
+                inStock: true
             }
 
         ]

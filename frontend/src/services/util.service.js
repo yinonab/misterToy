@@ -6,7 +6,9 @@ export const utilService = {
     saveToStorage,
     animateCSS,
     debounce,
-    getAssetSrc,makeLabel,getTimeFromStamp
+    getAssetSrc,
+    makeLabel,
+    getTimeFromStamp
 }
 
 function makeId(length = 6) {
@@ -20,15 +22,15 @@ function makeId(length = 6) {
     return txt
 }
 
-function makeLorem(size = 100) {
-    var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn']
-    var txt = ''
-    while (size > 0) {
-        size--
-        txt += words[Math.floor(Math.random() * words.length)] + ' '
-    }
-    return txt
-}
+// function makeLorem(size = 100) {
+//     var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn']
+//     var txt = ''
+//     while (size > 0) {
+//         size--
+//         txt += words[Math.floor(Math.random() * words.length)] + ' '
+//     }
+//     return txt
+// }
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min)
@@ -123,18 +125,18 @@ function getTimeFromStamp(timestamp) {
 function timeFormat(time) {
     return time < 10 ? '0' + time : time
 }
-function debounce(fn, wait) {
-    let timer
-    return function (...args) {
-        if (timer) {
-            clearTimeout(timer) // clear any pre-existing timer
-        }
-        const context = this // get the current context
-        timer = setTimeout(() => {
-            fn.apply(context, args) // call the function if time expires
-        }, wait)
-    }
-}
+// function debounce(fn, wait) {
+//     let timer
+//     return function (...args) {
+//         if (timer) {
+//             clearTimeout(timer) // clear any pre-existing timer
+//         }
+//         const context = this // get the current context
+//         timer = setTimeout(() => {
+//             fn.apply(context, args) // call the function if time expires
+//         }, wait)
+//     }
+// }
 function makeLorem(size = 1) {
     var words = ['sky', 'above', 'port', 'was', 'color ', 'tuned', 'to', ' channel', 'All', ' happened', 'more', 'I', 'had', 'story', 'bit', 'various', 'and', 'generally', 'happens', 'cases', 'time', 'it', 'was', 'story', 'It', 'was', 'pleasure', 'to', 'burn']
     var txt = ''

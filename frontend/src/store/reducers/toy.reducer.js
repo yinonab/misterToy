@@ -10,6 +10,7 @@ const initialState = {
 
 export function toyReducer(state = initialState, action = {}) {
     let toys
+    let lastToys
 
     switch (action.type) {
         case SET_TOYS:
