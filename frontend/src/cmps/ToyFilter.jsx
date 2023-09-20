@@ -1,8 +1,9 @@
-import { useSelector } from "react-redux";
+import { useState, useRef, useEffect } from "react"
+import { utilService } from "../services/util.service"
 
 
-export function ToyFilter({ filterBy,onSetFilter }) {
-    const [filterByToEdit, setFilterByToEdit] = useState({...filterBy})
+export function ToyFilter({ filterBy, onSetFilter }) {
+    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))
     useEffect(() => {
@@ -13,11 +14,12 @@ export function ToyFilter({ filterBy,onSetFilter }) {
     function handleChange({ target }) {
         let { value, name: field, type } = target
         value = (type === 'number') ? (+value || '') : value
+        console.log('target:', target)
+        console.log('value:', value)
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
     if (!filterBy) return <div>loading</div>
-    const { txt, inStock, } = filterBy
     return (
         <section className="todo-filter">
             <h2>Filter Our Toys</h2>
@@ -25,11 +27,20 @@ export function ToyFilter({ filterBy,onSetFilter }) {
 
                 <div className="filter-group">
                     <label htmlFor="txt">Title: </label>
-                    <input value={txt} onChange={handleChange} type="text" placeholder="By txt" id="txt" name="txt" />
+                    <input value={filterByToEdit.txt} onChange={handleChange} type="txt" placeholder="By txt" id="txt" name="txt" />
                 </div>
                 <div className="filter-group">
-                    <label htmlFor="todos">FIlter By:</label>
-                    <select value={inStock} name="inStock" id="inStock" onChange={handleChange}>
+                    <label htmlFor="inStock">Filter By:</label>
+                    <select value={filterByToEdit.inStock} name="inStock" id="inStock" onChange={handleChange}>
+                        <option value="">All</option>
+                        <option value="true">In Stock</option>
+                        <option value="false">Out Of Stock</option>
+                    </select>
+                </div>
+
+                <div className="filter-group">
+                    <label htmlFor="toys">FIlter By:</label>
+                    <select multiple value={filterByToEdit.labels} name="labels" id="labels" onChange={handleChange}>
                         <option value="">All</option>
                         <option value="On wheels">On wheels</option>
                         <option value="Box game">Box game</option>

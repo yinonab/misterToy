@@ -31,20 +31,30 @@ _createToys()
 // }
 
 function query(filterBy = {}) {
-    let toys = loadFromStorage(STORAGE_KEY)
-    let toyToDisplay = toys
-    if (filterBy.txt) {
-        const regExp = new RegExp(filterBy.txt, 'i')
-        toyToDisplay = toyToDisplay.filter(toy => regExp.test(toy.name))
-    }
-    if (filterBy.inStock) {
-        toyToDisplay = toyToDisplay.filter(toy => toy.inStock === filterBy.inStock)
-    }
-    if (filterBy.labels!==undefined){
-        toyToDisplay = toyToDisplay.filter(toy => toy.labels.includes(filterBy.labels))
-    }
-    // return axios.get(BASE_URL).then(res => res.data)
-    return toyToDisplay
+    console.log('hi');
+    return storageService.query(STORAGE_KEY).then(toys => {
+
+        let toyToDisplay = [...toys]
+        console.log('toyToDisplay txt', toyToDisplay)
+
+        if (filterBy.txt) {
+            const regExp = new RegExp(filterBy.txt, 'i')
+            toyToDisplay = toyToDisplay.filter(toy => regExp.test(toy.name))
+            console.log('toyToDisplay txt', toyToDisplay)
+        }
+        if (filterBy.inStock !== undefined) {
+            toyToDisplay = toyToDisplay.filter(toy => toy.inStock === filterBy.inStock);
+            console.log('toyToDisplay inStock', toyToDisplay);
+        }
+        if (filterBy.labels && filterBy.labels.length > 0) {
+            toyToDisplay = toyToDisplay.filter(toy => {
+                return toy.labels.some(label => filterBy.labels.includes(label));
+            });
+        }
+        
+        // return axios.get(BASE_URL).then(res => res.data)
+        return toyToDisplay
+    })
 }
 
 // function getById(toyId) {
@@ -98,8 +108,9 @@ function getEmptyToy() {
 
 
 function getDefaultFilter() {
-    return { txt: '', inStore: undefined,pageIdx:0 }
+    return { txt: '', labels: [], inStock: undefined, pageIdx: 0 };
 }
+
 
 
 function _createToys() {
@@ -112,7 +123,7 @@ function _createToys() {
                 price: utilService.getRandomIntInclusive(1000, 9000),
                 labels: utilService.makeLabel(),
                 createdAt: utilService.getTimeFromStamp(Date.now()),
-                inStock: true
+                inStock: false
 
             },
             {
@@ -130,7 +141,7 @@ function _createToys() {
                 price: utilService.getRandomIntInclusive(1000, 9000),
                 labels: utilService.makeLabel(),
                 createdAt: utilService.getTimeFromStamp(Date.now()),
-                inStock: true
+                inStock: false
             }
 
         ]
