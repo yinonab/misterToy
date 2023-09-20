@@ -148,12 +148,14 @@ function makeLorem(size = 1) {
 }
 function makeLabel(size = 3) {
     var words = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']
-    var txt = ''
+    var word = ''
+    let labels = []
     while (size > 0) {
         size--
-        txt += words[Math.floor(Math.random() * words.length)] + ''
+        word = words[Math.floor(Math.random() * words.length)] + ''
+        labels.push(word)
     }
-    return txt
+    return labels
 }
 function makePhoneNumber(length = 8) {
     var txt = ''
