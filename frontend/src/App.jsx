@@ -15,9 +15,8 @@ export function App() {
                       <Routes>
                           {/* { <Route element={<HomePage />} path="/" />} */}
                           {/* {<Route element={<AboutUs />} path="/about" /> } */}
-                          { <Route element={<ToyIndex />} path="/toy" /> }
-                          {/* <Route element={<ContactIndex  />} path="/contact" />
-                          <Route element={<ContactDetails />} path="/contact/:contactId" /> */} 
+                          <Route element={<ToyIndex  />} path="/toy" />
+                          <Route element={<ToyDetails />} path="/toy/:toyId" /> 
                       </Routes>
                   </main>
                   {/* <AppFooter /> */}
