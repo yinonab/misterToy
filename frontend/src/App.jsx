@@ -10,12 +10,12 @@ export function App() {
       <Provider store={store}>
           <Router>
               <section className="main-layout app">
-                  {/* <AppHeader /> */}
+                  {<AppHeader /> }
                   <main>
                       <Routes>
-                          {/* <Route element={<HomePage />} path="/" />
-                          <Route element={<AboutUs />} path="/about" /> */}
-                          { <Route element={<ToyIndex />} path="/" /> }
+                          {/* { <Route element={<HomePage />} path="/" />} */}
+                          {/* {<Route element={<AboutUs />} path="/about" /> } */}
+                          { <Route element={<ToyIndex />} path="/toy" /> }
                           {/* <Route element={<ContactIndex  />} path="/contact" />
                           <Route element={<ContactDetails />} path="/contact/:contactId" /> */} 
                       </Routes>
