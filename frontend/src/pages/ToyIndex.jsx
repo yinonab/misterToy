@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
 
 export function ToyIndex(){
     const { toys } = useSelector(storeState => storeState.toyModule)
@@ -10,7 +11,7 @@ export function ToyIndex(){
     }, [])
 
     function onRemoveToy(toyId) {
-        removeToy(toyId)
+        removeToyy(toyId)
             .then(() => {
                 showSuccessMsg('toy removed')
             })
@@ -22,7 +23,7 @@ export function ToyIndex(){
 
     function onAddToy() {
         const toyToSave = toyService.getEmptyToy()
-        saveToy(toyToSave)
+        saveToyy(toyToSave)
             .then(savedToy => {
                 showSuccessMsg(`Toy added (id: ${savedToy._id})`)
             })
