@@ -1,6 +1,8 @@
 /* Setup */
 @import'./setup/vars.css';
+@import'./setup/typography.css';
 
 /* cmp */
 @import'./cmp/AppHeader.css';
+@import'./cmp/HomePage.css';
 @import './cmp/UserMsg.css';
