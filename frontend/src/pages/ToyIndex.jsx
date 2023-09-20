@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
 import { ToyList } from '../cmps/ToyList'
+import { toyService } from '../services/toy.service'
 
 export function ToyIndex(){
     const { toys } = useSelector(storeState => storeState.toyModule)

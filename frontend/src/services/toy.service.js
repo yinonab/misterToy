@@ -77,7 +77,7 @@ function getEmptyToy() {
 
         name: utilService.makeLorem(),
         price: utilService.getRandomIntInclusive(1000, 9000),
-        labels: [utilService.makeLabel()].join(','),
+        labels: utilService.makeLabel(),
         createdAt: utilService.getTimeFromStamp(Date.now()),
         inStock: true
     }
@@ -97,7 +97,7 @@ function _createToys() {
                 _id: utilService.makeId(),
                 name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels: [utilService.makeLabel()].join(','),
+                labels: utilService.makeLabel(),
                 createdAt: utilService.getTimeFromStamp(Date.now()),
                 inStock: true
 
@@ -106,7 +106,7 @@ function _createToys() {
                 _id: utilService.makeId(),
                 name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels: [utilService.makeLabel()].join(','),
+                labels: utilService.makeLabel(),
                 createdAt: utilService.getTimeFromStamp(Date.now()),
                 inStock: true
 
@@ -115,7 +115,7 @@ function _createToys() {
                 _id: utilService.makeId(),
                 name: utilService.makeLorem(),
                 price: utilService.getRandomIntInclusive(1000, 9000),
-                labels: [utilService.makeLabel()].join(','),
+                labels: utilService.makeLabel(),
                 createdAt: utilService.getTimeFromStamp(Date.now()),
                 inStock: true
             }

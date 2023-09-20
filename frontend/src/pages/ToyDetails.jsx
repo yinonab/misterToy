@@ -23,6 +23,7 @@ export function ToyDetails() {
         })
     }
     if (!toy) return <div>Loading...</div>
+    console.log('toy.labels', toy.labels);
     return (
         <section className="toy-details">
         <h1>Toy Name : {toy.name}</h1>
