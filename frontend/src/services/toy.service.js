@@ -14,6 +14,7 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
+    getDefaultFilter
 
 }
 _createToys()
@@ -29,9 +30,21 @@ _createToys()
 //     // })
 // }
 
-function query() {
+function query(filterBy = {}) {
+    let toys = loadFromStorage(STORAGE_KEY)
+    let toyToDisplay = toys
+    if (filterBy.txt) {
+        const regExp = new RegExp(filterBy.txt, 'i')
+        toyToDisplay = toyToDisplay.filter(toy => regExp.test(toy.name))
+    }
+    if (filterBy.inStock) {
+        toyToDisplay = toyToDisplay.filter(toy => toy.inStock === filterBy.inStock)
+    }
+    if (filterBy.labels!==undefined){
+        toyToDisplay = toyToDisplay.filter(toy => toy.labels.includes(filterBy.labels))
+    }
     // return axios.get(BASE_URL).then(res => res.data)
-    return storageService.query(STORAGE_KEY)
+    return toyToDisplay
 }
 
 // function getById(toyId) {
@@ -84,9 +97,9 @@ function getEmptyToy() {
 }
 
 
-// function getDefaultFilter() {
-//     return { txt: '', maxPrice: '' }
-// }
+function getDefaultFilter() {
+    return { txt: '', inStore: undefined,pageIdx:0 }
+}
 
 
 function _createToys() {
