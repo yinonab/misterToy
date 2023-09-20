@@ -1,6 +1,8 @@
 .toy-list {
     list-style-type: none;
     padding: 0;
+    font-family: 'Righteous', cursive;
+
   }
 
   .toy-preview {
