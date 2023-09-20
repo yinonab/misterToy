@@ -1,1 +1,6 @@
-@import 'index.css'
+@import 'index.css';
+
+
+/* cmp */
+
+@import './cmp/UserMsg.css';
