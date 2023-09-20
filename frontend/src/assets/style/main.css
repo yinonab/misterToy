@@ -1,6 +1,6 @@
-@import 'index.css';
-
+/* Setup */
+@import'./setup/vars.css';
 
 /* cmp */
-
+@import'./cmp/AppHeader.css';
 @import './cmp/UserMsg.css';

@@ -1,0 +1,5 @@
+.app-header {
+    background-color: var(--clr4);
+    padding: 1em;
+    font-family: 'Righteous', cursive;
+  }
