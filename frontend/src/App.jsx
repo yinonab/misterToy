@@ -2,6 +2,7 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import './assets/style/main.css'
+import { ToyIndex } from './pages/ToyIndex'
 
 export function App() {
 
@@ -14,7 +15,7 @@ export function App() {
                       <Routes>
                           {/* <Route element={<HomePage />} path="/" />
                           <Route element={<AboutUs />} path="/about" /> */}
-                          { <Route element={<ToyIndex  />} path="/" /> }
+                          { <Route element={<ToyIndex />} path="/" /> }
                           {/* <Route element={<ContactIndex  />} path="/contact" />
                           <Route element={<ContactDetails />} path="/contact/:contactId" /> */} 
                       </Routes>
