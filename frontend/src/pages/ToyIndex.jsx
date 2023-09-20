@@ -31,4 +31,18 @@ export function ToyIndex(){
                 showErrorMsg('Cannot add toy')
             })
     }
+
+    
+    function onEditToy(toy) {
+        const price = +prompt('New price?', car.price)
+        const toyToSave = { ...car, price }
+        saveToy(toyToSave)
+            .then(savedToy => {
+                showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
+            })
+            .catch(err => {
+                console.log('Cannot update toy', err)
+                showErrorMsg('Cannot update toy')
+            })
+    }
 }
