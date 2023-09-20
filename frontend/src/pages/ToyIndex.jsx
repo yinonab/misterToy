@@ -37,8 +37,8 @@ export function ToyIndex(){
 
     
     function onEditToy(toy) {
-        const price = +prompt('New price?', car.price)
-        const toyToSave = { ...car, price }
+        const price = +prompt('New price?', toy.price)
+        const toyToSave = { ...toy, price }
         saveToy(toyToSave)
             .then(savedToy => {
                 showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
