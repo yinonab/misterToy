@@ -1,5 +1,5 @@
 import { toyService } from "../../services/toy.service";
-import { REMOVE_TOY, SET_TOYS } from "../reducers/toy.reducer";
+import { ADD_TOY, REMOVE_TOY, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer";
 import { store } from "../store";
 
 
@@ -19,6 +19,19 @@ export function removeToy(toyId) {
         })
         .catch(err => {
             console.log('toy action -> Cannot remove toy', err)
+            throw err
+        })
+}
+
+export function saveCar(toy) {
+    const type = toy._id ? UPDATE_TOY : ADD_TOY
+    return toyService.save(toy)
+        .then(toyToSave => {
+            store.dispatch({ type, toy: toyToSave })
+            return toyToSave
+        })
+        .catch(err => {
+            console.log('toy action -> Cannot save toy', err)
             throw err
         })
 }
