@@ -3,7 +3,7 @@
 @import'./setup/typography.css';
 
 /* cmp */
-@import'./cmp/ToyPreview.css';
+/* @import'./cmp/ToyPreview.css'; */
 @import'./cmp/ToyList.css';
 @import'./cmp/ToyIndex.css';
 @import'./cmp/AppHeader.css';
