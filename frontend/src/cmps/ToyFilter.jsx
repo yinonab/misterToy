@@ -36,11 +36,11 @@ export function ToyFilter({ filterBy, onSetFilter }) {
             <form >
 
                 <div className="filter-group">
-                    <label htmlFor="txt">Filter By Name: </label>
+                    <label htmlFor="txt"></label>
                     <input value={filterByToEdit.txt} onChange={handleChange} type="txt" placeholder="By txt" id="txt" name="txt" />
                 </div>
                 <div className="filter-group">
-                    <label htmlFor="inStock">Filter By Stock Available:</label>
+                    <label htmlFor="inStock">Stoke available:</label>
                     <select value={filterByToEdit.inStock} name="inStock" id="inStock" onChange={handleChange}>
                         <option value="">All</option>
                         <option value="true">In Stock</option>
@@ -49,7 +49,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                 </div>
 
                 <div className="filter-group">
-                    <label htmlFor="toys">FIlter By Label:</label>
+                    <label htmlFor="toys">Label:</label>
                     <select multiple value={filterByToEdit.labels} name="labels" id="labels" onChange={handleChange}>
                         <option value="">All</option>
                         <>
