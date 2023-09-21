@@ -1,5 +1,5 @@
 import { toyService } from "../../services/toy.service";
-import { ADD_TOY, REMOVE_TOY, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer";
+import { ADD_TOY, REMOVE_TOY, SET_FILTER, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer";
 import { store } from "../store";
 
 
@@ -38,4 +38,12 @@ export function saveToy(toy) {
             console.log('toy action -> Cannot save toy', err)
             throw err
         })
+}
+
+export function setToyFilter(filterBy = toyService.getDefaultFilter()) {
+    
+    // dispatch
+    store.dispatch({type: SET_FILTER, filterBy})
+    return Promise.resolve(filterBy)
+    // return loadToys()
 }

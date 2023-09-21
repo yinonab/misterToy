@@ -1,27 +1,25 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { loadToys, removeToy, saveToy } from '../store/actions/toy.action'
+import { loadToys, removeToy, saveToy, setToyFilter } from '../store/actions/toy.action'
 
 import { ToyFilter } from '../cmps/ToyFilter'
 
 import { ToyList } from '../cmps/ToyList'
 import { toyService } from '../services/toy.service'
-import { SET_FILTER } from '../store/reducers/toy.reducer'
 
 
-export function ToyIndex(){
-    const dispatch = useDispatch()
+export function ToyIndex() {
     const { toys } = useSelector(storeState => storeState.toyModule)
-    const filterBy  = useSelector(storeState => storeState.toyModule.filterBy)
+    const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
 
     useEffect(() => {
         // console.log('filterBy:', filterBy)
         loadToys()
-        .catch(err => {
-            console.log('err:', err)
-            showErrorMsg('Cannot load toys')
-        })
+            .catch(err => {
+                console.log('err:', err)
+                showErrorMsg('Cannot load toys')
+            })
     }, [filterBy])
 
     function onRemoveToy(toyId) {
@@ -48,10 +46,10 @@ export function ToyIndex(){
     }
 
     function onSetFilter(filterBy) {
-        dispatch({ type: SET_FILTER, filterBy })
+        setToyFilter(filterBy)
     }
 
-    
+
     function onEditToy(toy) {
         const price = +prompt('New price?', toy.price)
         const toyToSave = { ...toy, price }
@@ -65,16 +63,16 @@ export function ToyIndex(){
             })
     }
 
-    return(
+    return (
         <div className="div-container">
             <h3 className="custom-h3">Toys App</h3>
             <main className="custom-main">
-                <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter}/>
+                <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
-                toys={toys}
-                onRemoveToy={onRemoveToy}
-                onEditToy={onEditToy}
+                    toys={toys}
+                    onRemoveToy={onRemoveToy}
+                    onEditToy={onEditToy}
                 />
             </main>
         </div>
