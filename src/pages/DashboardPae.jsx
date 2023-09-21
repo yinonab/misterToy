@@ -14,8 +14,6 @@ export function DashboardPage() {
         toyService.query().then((toys) => setToys(toys))
     }, [])
 
-
-
     const data = {
         labels: toyService.getToyLabels(),
 
