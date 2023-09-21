@@ -31,7 +31,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     if (!filterBy) return <div>loading</div>
     return (
-        <section className="todo-filter">
+        <section className="toy-filter">
             <h2>Filter Our Toys</h2>
             <form >
 
