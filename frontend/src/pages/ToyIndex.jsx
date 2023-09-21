@@ -7,7 +7,7 @@ import { ToyFilter } from '../cmps/ToyFilter'
 
 import { ToyList } from '../cmps/ToyList'
 import { toyService } from '../services/toy.service'
-import { FILTER_TODO } from '../store/reducers/toy.reducer'
+import { SET_FILTER } from '../store/reducers/toy.reducer'
 
 
 export function ToyIndex(){
@@ -48,7 +48,7 @@ export function ToyIndex(){
     }
 
     function onSetFilter(filterBy) {
-        dispatch({ type: FILTER_TODO, filterBy })
+        dispatch({ type: SET_FILTER, filterBy })
     }
 
     

@@ -5,7 +5,7 @@ export const REMOVE_TOY = 'REMOVE_TOY'
 export const ADD_TOY = 'ADD_TOY'
 export const UPDATE_TOY = 'UPDATE_TOY'
 
-export const FILTER_TODO = 'FILTER_TODO'
+export const SET_FILTER = 'SET_FILTER'
 export const SET_PAGE_IDX = 'SET_PAGE_IDX'
 
 const initialState = {
@@ -38,7 +38,7 @@ export function toyReducer(state = initialState, action = {}) {
             return { ...state, toys }
 
         //Filter
-        case FILTER_TODO:
+        case SET_FILTER:
             return { ...state, filterBy: action.filterBy }
         case SET_PAGE_IDX:
             return { ...state, filterBy: { ...state.filterBy, pageIdx: action.pageIdx } };
