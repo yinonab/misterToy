@@ -6,6 +6,7 @@ import { ToyIndex } from './pages/ToyIndex'
 import { AppHeader } from './cmps/AppHeader'
 import { HomePage } from './pages/HomePage'
 import { ToyDetails } from './pages/ToyDetails'
+import { UserMsg } from './cmps/UserMsg'
 
 export function App() {
 
@@ -13,6 +14,7 @@ export function App() {
       <Provider store={store}>
           <Router>
               <section className="main-layout app">
+                <UserMsg/>
                   <AppHeader />
                   <main>
                       <Routes>
