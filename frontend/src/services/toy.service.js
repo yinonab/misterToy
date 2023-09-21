@@ -14,7 +14,8 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    getToyLabels
 
 }
 _createToys()
@@ -151,7 +152,9 @@ function _createToys() {
     }
 }
 
+function getToyLabels() {
+    return labels
+}
+
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 6', price: 980}).then(x => console.log(x))
-
-
