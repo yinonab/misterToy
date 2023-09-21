@@ -62,7 +62,7 @@ export function ToyIndex() {
                 showErrorMsg('Cannot update toy')
             })
     }
-
+    if (!toys.length) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
     return (
         <div className="div-container">
             <h3 className="custom-h3">Toys App</h3>
