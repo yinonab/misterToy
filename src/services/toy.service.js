@@ -13,7 +13,9 @@ export const toyService = {
     remove,
     getEmptyToy,
     getDefaultFilter,
-    getToyLabels
+    getToyLabels,
+    getLabels,
+    getDataValues
 }
 
 _createToys()
@@ -138,6 +140,24 @@ function _createToys() {
 
 function getToyLabels() {
     return labels
+}
+
+function getLabels(toys){
+    let labels = {}
+    toys.map(toy=>{
+        toy.labels.map(label=>{
+            if(!labels[label])labels[label] = 0
+            labels[label] ++
+        })
+    })
+    return labels
+}
+function getDataValues(labels){
+    var newData=[]
+    for(var i=0;i<Object.keys(labels).length;i++){
+        newData.push(Object.values(labels)[i])
+    }
+    return newData
 }
 
 // TEST DATA

@@ -7,6 +7,7 @@ import { AppHeader } from './cmps/AppHeader'
 import { HomePage } from './pages/HomePage'
 import { ToyDetails } from './pages/ToyDetails'
 import { UserMsg } from './cmps/UserMsg'
+import { DashboardPage } from './pages/DashboardPae'
 
 export function App() {
 
@@ -20,6 +21,7 @@ export function App() {
                       <Routes>
                            <Route element={<HomePage />} path="/" />
                           {/* {<Route element={<AboutUs />} path="/about" /> } */}
+                          <Route element={<DashboardPage />} path="/dashboard" /> 
                           <Route element={<ToyIndex />} path="/toy" /> 
                           <Route element={<ToyDetails />} path="/toy/:toyId" /> 
                       </Routes>
