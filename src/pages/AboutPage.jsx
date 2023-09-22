@@ -32,19 +32,23 @@ export function AboutPage() {
 
     return (
 
-        <section>
-            <h1 className="about-title">
-                Welcome to toy store
-            </h1>
-            <p className="about-p">
-                The store was created as part of the bootcamp by 3 students
-                <li>Oz Hodeda</li>
-                <li>Yinon Abarjel</li>
-                <li>Itamar Sasson</li>
-                in the store you can find any toys tou want <br />
-                you can filter them sort them and see any details about the toys 
-            </p>
-            <div style={{ height: '70vh', width: '70%' }}>
+        <section className="about-section">
+
+            <div className="header-about-container">
+                <h1 className="about-title">
+                    Welcome to toy store
+                </h1>
+                <p className="about-p">
+                    The store was created as part of the bootcamp by 3 students
+                    <li>Oz Hodeda</li>
+                    <li>Yinon Abarjel</li>
+                    <li>Itamar Sasson</li>
+                    in the store you can find any toys tou want <br />
+                    you can filter them sort them and see any details about the toys
+                </p>
+            </div>
+
+            <div className="store-map" style={{ height: '50vh', width: '50%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
                     center={coordinates}
@@ -56,19 +60,21 @@ export function AboutPage() {
                         text="🚩"
                     />
                 </GoogleMapReact>
-            </div>
-            <ul className="btn-branches">
-                <h3 className="branches-title">branches</h3>
-                <li>
-                    <button id='tel aviv' onClick={goToLocation}>Tel-Aviv</button>
-                </li>
-                <li>
-                    <button id='hadera' onClick={goToLocation}>Hadera</button>
-                </li>
-                <li>
-                    <button id='bat yam' onClick={goToLocation}> Bat-Yam</button>
-                </li>
-            </ul>
+               
+                <ul className="btn-branches">
+                    <h3 className="branches-title">branches</h3>
+                    <li>
+                        <button id='tel aviv' onClick={goToLocation}>Tel-Aviv</button>
+                    </li>
+                    <li>
+                        <button id='hadera' onClick={goToLocation}>Hadera</button>
+                    </li>
+                    <li>
+                        <button id='bat yam' onClick={goToLocation}> Bat-Yam</button>
+                    </li>
+                </ul>
+             </div>
+
         </section>
     )
 }
