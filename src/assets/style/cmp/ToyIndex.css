@@ -44,7 +44,7 @@
     margin: 0 5px;
     display: inline-block;
     font-size: 16px;
-    background-color: #007bff;
+    background-color:var(--clr5);
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
@@ -53,7 +53,7 @@
   }
   
   .pagination li.active {
-    background-color: #0056b3;
+    background-color: var(--clr6);
   }
   
   .pagination li.previous,
