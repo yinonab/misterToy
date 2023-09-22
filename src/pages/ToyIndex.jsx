@@ -1,17 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import ReactPaginate from 'react-paginate';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy, setToyFilter } from '../store/actions/toy.action'
 
 import { ToyFilter } from '../cmps/ToyFilter'
-
 import { ToyList } from '../cmps/ToyList'
+
 import { toyService } from '../services/toy.service'
 
 
 export function ToyIndex() {
     const { toys } = useSelector(storeState => storeState.toyModule)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+    const [currentPage, setCurrentPage] = useState(0)
+    const itemsPerPage = 5
+
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const displayedToys = toys.slice(startIndex, endIndex);
 
     useEffect(() => {
         // console.log('filterBy:', filterBy)
@@ -47,6 +54,7 @@ export function ToyIndex() {
 
     function onSetFilter(filterBy) {
         setToyFilter(filterBy)
+        setCurrentPage(0)
     }
 
 
@@ -70,9 +78,17 @@ export function ToyIndex() {
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
-                    toys={toys}
+                    toys={displayedToys}
                     onRemoveToy={onRemoveToy}
                     onEditToy={onEditToy}
+                />
+                <ReactPaginate
+                    previousLabel={'Previous'}
+                    nextLabel={'Next'}
+                    pageCount={Math.ceil(toys.length / itemsPerPage)}
+                    onPageChange={({ selected }) => setCurrentPage(selected)}
+                    containerClassName={'pagination'}
+                    activeClassName={'active'}
                 />
             </main>
         </div>
