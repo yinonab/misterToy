@@ -76,20 +76,20 @@ export function ToyIndex() {
             <h3 className="custom-h3">Toys App</h3>
             <main className="custom-main">
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-                <ReactPaginate
-                    previousLabel={'Previous'}
-                    nextLabel={'Next'}
-                    pageCount={Math.ceil(toys.length / itemsPerPage)}
-                    onPageChange={({ selected }) => setCurrentPage(selected)}
-                    containerClassName={'pagination'}
-                    activeClassName={'active'}
-                />
                 <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
                     toys={displayedToys}
                     onRemoveToy={onRemoveToy}
                     onEditToy={onEditToy}
                 />
+            <ReactPaginate
+                previousLabel={'Previous'}
+                nextLabel={'Next'}
+                pageCount={Math.ceil(toys.length / itemsPerPage)}
+                onPageChange={({ selected }) => setCurrentPage(selected)}
+                containerClassName={'pagination'}
+                activeClassName={'active'}
+            />
             </main>
         </div>
     )
