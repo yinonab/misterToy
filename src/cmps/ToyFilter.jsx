@@ -31,12 +31,12 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     if (!filterBy) return <div>loading</div>
     return (
-        <section className="toy-filter">
-            <h2>Filter Our Toys</h2>
-            <form >
 
+        <div>
+            {/* <h2>Filter Our Toys</h2> */}
+        <section className="toy-filter">
                 <div className="filter-group">
-                    <label htmlFor="txt"></label>
+                    <label htmlFor="txt">Search By text</label><br />
                     <input value={filterByToEdit.txt} onChange={handleChange} type="txt" placeholder="By txt" id="txt" name="txt" />
                 </div>
                 <div className="filter-group">
@@ -59,7 +59,8 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                         </>
                     </select>
                 </div>
-            </form>
+           
         </section>
+        </div>
     )
 }

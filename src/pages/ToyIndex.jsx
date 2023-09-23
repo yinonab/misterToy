@@ -14,7 +14,7 @@ export function ToyIndex() {
     const { toys } = useSelector(storeState => storeState.toyModule)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const [currentPage, setCurrentPage] = useState(0)
-    const itemsPerPage = 5
+    const itemsPerPage = 6
 
     const startIndex = currentPage * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -73,7 +73,7 @@ export function ToyIndex() {
     // if (!toys.length) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
     return (
         <div className="div-container">
-            <h3 className="custom-h3">Toys App</h3>
+            {/* <h3 className="custom-h3">Toys App</h3> */}
             <main className="custom-main">
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
