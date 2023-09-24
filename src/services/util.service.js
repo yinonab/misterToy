@@ -8,7 +8,8 @@ export const utilService = {
     debounce,
     getAssetSrc,
     makeLabel,
-    getTimeFromStamp
+    getTimeFromStamp,
+    randomTrueFalse
 }
 
 function makeId(length = 6) {
@@ -189,4 +190,8 @@ function makePhoneNumber(length = 8) {
     }
 
     return txt
+}
+function randomTrueFalse() {
+    return Math.random() < 0.5;
+
 }
