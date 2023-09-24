@@ -9,7 +9,7 @@ export const utilService = {
     getAssetSrc,
     makeLabel,
     getTimeFromStamp,
-    randomTrueFalse
+    randomTrueFalse,makeImage
 }
 
 function makeId(length = 6) {
@@ -180,6 +180,15 @@ function makeLabel(size = 3) {
         labels.push(word)
     }
     return labels
+}
+function makeImage(size = 1) {
+    const toyIcons = ["🧸", "🚗","🎨","🎆","🌞","☔","⚡","🎌","🗼","🗽","🛴","🛵","🚍","🚋","🦼","🚖","🚜","🦽","🕋","🚲","⛑","🏈","🎱","⛳","💎","👑","⚽","👓","🏏","🤿","🎣","🏐","🏀","🥎","🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */];
+    var icon = ''
+    while (size > 0) {
+        size--
+        icon = toyIcons[Math.floor(Math.random() * toyIcons.length)] + ''
+    }
+    return icon
 }
 function makePhoneNumber(length = 8) {
     var txt = ''

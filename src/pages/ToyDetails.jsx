@@ -31,7 +31,7 @@ export function ToyDetails() {
         <h5 className="toy-price-details">Price: ${toy.price}</h5>
         <h5 className="toy-created-date">Created Date: {toy.createdAt}</h5>
         <h5 className="toy-labels">Labels: {toy.labels.join(',')}</h5>
-        <p className="toy-emoji">🪀🧸</p>
+        <h1 className="toy-emoji">{toy.icon}</h1>
         <h5 className="toy-description-heading">Description</h5>
         <p className="toy-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
         <Link className="back-link" to="/toy">Back</Link>

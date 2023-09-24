@@ -97,7 +97,8 @@ function getEmptyToy() {
         price: utilService.getRandomIntInclusive(1000, 9000),
         labels: utilService.makeLabel(),
         createdAt: utilService.getTimeFromStamp(Date.now()),
-        inStock: utilService.randomTrueFalse()
+        inStock: utilService.randomTrueFalse(),
+        icon:utilService.makeImage()
     }
 }
 
