@@ -46,6 +46,11 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     const handlePriceChange = (e) => {
       setEditedPrice(e.target.value)
     }
+    const toggleInStock = () => {
+        const updatedToy = { ...toy, inStock: !toy.inStock };
+        saveToy(updatedToy);
+      };
+    
   
   
   
@@ -69,9 +74,15 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
 
 
       <h1 className="toy-emoji">{toy.icon}</h1>
-      <h5 className={`toy-status-details ${toy.inStock ? "in-stock" : "out-of-stock"}`}>
-        Status:<br/> {toy.inStock ? "In Stock" : "Out of Stock"}
+      <h5
+        className={`toy-status-details ${
+          toy.inStock ? "in-stock" : "out-of-stock"
+        }`}
+        onClick={toggleInStock} // Add the onClick handler to toggle inStock
+      >
+        Status: {toy.inStock ? "In Stock" : "Out of Stock"}
       </h5>
+
 
       <p className="toy-price">
         {isEditingPrice ? (
