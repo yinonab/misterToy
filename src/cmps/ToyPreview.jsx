@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { saveToy } from '../store/actions/toy.action'
+
 
 // List of toy icons
 const toyIcons = ["🧸", "🚗","🎨","🎆","🌞","☔","⚡","🎌","🗼","🗽","🛴","🛵","🚍","🚋","🦼","🚖","🚜","🦽","🕋","🚲","⛑","🏈","🎱","⛳","💎","👑","⚽","👓","🏏","🤿","🎣","🏐","🏀","🥎","🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */]
@@ -21,7 +23,21 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     const handleBlur = () => {
       setIsEditingName(false)
       setIsEditingPrice(false)
+  
+      // Save changes to the database
+      if (editedName !== toy.name || editedPrice !== toy.price) {
+        const toyToSave = { ...toy, name: editedName, price: editedPrice }
+        console.log('toyToSave:', toyToSave)
+        saveToy(toyToSave)
+          .then((savedToy) => {
+            console.log(`Toy updated to name: ${savedToy.name}, price: $${savedToy.price}`)
+          })
+          .catch((err) => {
+            console.error("Cannot update toy", err)
+          })
+      }
     }
+  
   
     const handleNameChange = (e) => {
       setEditedName(e.target.value)
@@ -31,10 +47,12 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
       setEditedPrice(e.target.value)
     }
   
+  
+  
 
   return (
     <article className="toy-article">
-       <h4 className="toy-name">
+     <h4 className="toy-name">
         {isEditingName ? (
           <input
             type="text"
@@ -46,6 +64,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
           <span onClick={handleNameClick}>{editedName}</span>
         )}
       </h4>
+
 
 
 
@@ -66,6 +85,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
           <span onClick={handlePriceClick}>${editedPrice.toLocaleString()}</span>
         )}
       </p>
+
 
 
       <div>
