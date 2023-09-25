@@ -4,7 +4,7 @@ import { saveToy } from '../store/actions/toy.action'
 
 
 // List of toy icons
-const toyIcons = ["🧸", "🚗","🎨","🎆","🌞","☔","⚡","🎌","🗼","🗽","🛴","🛵","🚍","🚋","🦼","🚖","🚜","🦽","🕋","🚲","⛑","🏈","🎱","⛳","💎","👑","⚽","👓","🏏","🤿","🎣","🏐","🏀","🥎","🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */]
+// const toyIcons = ["🧸", "🚗","🎨","🎆","🌞","☔","⚡","🎌","🗼","🗽","🛴","🛵","🚍","🚋","🦼","🚖","🚜","🦽","🕋","🚲","⛑","🏈","🎱","⛳","💎","👑","⚽","👓","🏏","🤿","🎣","🏐","🏀","🥎","🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */]
 
 export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     const [isEditingName, setIsEditingName] = useState(false)
@@ -27,7 +27,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
       // Save changes to the database
       if (editedName !== toy.name || editedPrice !== toy.price) {
         const toyToSave = { ...toy, name: editedName, price: editedPrice }
-        console.log('toyToSave:', toyToSave)
         saveToy(toyToSave)
           .then((savedToy) => {
             console.log(`Toy updated to name: ${savedToy.name}, price: $${savedToy.price}`)

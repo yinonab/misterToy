@@ -24,7 +24,6 @@ export function ToyDetails() {
     }
     if (!toy) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
 
-    console.log('toy.labels', toy.labels);
     return (
         <section className="toy-details">
         <h1 className="toy-name-details">Toy Name : {toy.name}</h1>
