@@ -4,5 +4,8 @@
 @import 'setup/_mixins.scss';
 @import 'setup/_functions.scss';
 
+// BASICS
+@import 'base/layout.scss';
+
 /*SASS - cmp*/
 @import 'cmp/_AppHeader.scss';
