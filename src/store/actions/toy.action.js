@@ -1,6 +1,6 @@
-import { toyService } from "../../services/toy.service";
-import { ADD_TOY, REMOVE_TOY, SET_FILTER, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer";
-import { store } from "../store";
+import { toyService } from "../../services/toy.service"
+import { ADD_TOY, REMOVE_TOY, SET_FILTER, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer"
+import { store } from "../store"
 
 
 export function loadToys() {
@@ -41,9 +41,9 @@ export function saveToy(toy) {
 }
 
 export function setToyFilter(filterBy = toyService.getDefaultFilter()) {
-    
+
     // dispatch
-    store.dispatch({type: SET_FILTER, filterBy})
+    store.dispatch({ type: SET_FILTER, filterBy })
     return Promise.resolve(filterBy)
     // return loadToys()
 }

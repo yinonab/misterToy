@@ -1,4 +1,3 @@
-
 .about-section {
     padding: 40px;
     display: flex;
@@ -21,7 +20,7 @@
     color: #333;
     margin-bottom: 20px;
     text-transform: uppercase;
-    
+
 }
 
 .about-p {
@@ -64,7 +63,7 @@
 
 .btn-branches li {
     margin: 10px 0;
-    list-style:none;
+    list-style: none;
 }
 
 .btn-branches button {

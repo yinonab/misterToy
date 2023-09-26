@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { toyService } from "../services/toy.service";
+import { useEffect, useState } from "react"
+import { toyService } from "../services/toy.service"
 
-import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import React from 'react'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend)
 
 
@@ -33,7 +33,7 @@ export function DashboardPage() {
             hoverOffset: 4
         }]
     }
-console.log('data',data.datasets.data)
+    console.log('data', data.datasets.data)
     return (
         <section style={{ maxWidth: '60vw', margin: 'auto' }}>
             <Doughnut data={data} />

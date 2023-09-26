@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from 'react-paginate'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadToys, removeToy, saveToy, setToyFilter } from '../store/actions/toy.action'
 
@@ -16,9 +16,9 @@ export function ToyIndex() {
     const [currentPage, setCurrentPage] = useState(0)
     const itemsPerPage = 6
 
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const displayedToys = toys.slice(startIndex, endIndex);
+    const startIndex = currentPage * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    const displayedToys = toys.slice(startIndex, endIndex)
 
     useEffect(() => {
         // console.log('filterBy:', filterBy)
@@ -82,14 +82,14 @@ export function ToyIndex() {
                     onRemoveToy={onRemoveToy}
                     onEditToy={onEditToy}
                 />
-            <ReactPaginate
-                previousLabel={'Previous'}
-                nextLabel={'Next'}
-                pageCount={Math.ceil(toys.length / itemsPerPage)}
-                onPageChange={({ selected }) => setCurrentPage(selected)}
-                containerClassName={'pagination'}
-                activeClassName={'active'}
-            />
+                <ReactPaginate
+                    previousLabel={'Previous'}
+                    nextLabel={'Next'}
+                    pageCount={Math.ceil(toys.length / itemsPerPage)}
+                    onPageChange={({ selected }) => setCurrentPage(selected)}
+                    containerClassName={'pagination'}
+                    activeClassName={'active'}
+                />
             </main>
         </div>
     )

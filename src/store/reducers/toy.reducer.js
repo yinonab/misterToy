@@ -41,9 +41,9 @@ export function toyReducer(state = initialState, action = {}) {
         case SET_FILTER:
             return { ...state, filterBy: action.filterBy }
         case SET_PAGE_IDX:
-            return { ...state, filterBy: { ...state.filterBy, pageIdx: action.pageIdx } };
+            return { ...state, filterBy: { ...state.filterBy, pageIdx: action.pageIdx } }
 
         default:
-            return state;
+            return state
     }
 }

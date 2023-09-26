@@ -9,7 +9,7 @@ export const utilService = {
     getAssetSrc,
     makeLabel,
     getTimeFromStamp,
-    randomTrueFalse,makeImage
+    randomTrueFalse, makeImage
 }
 
 function makeId(length = 6) {
@@ -161,7 +161,7 @@ function makeLorem(size = 1) {
         "Green Lantern (Alan Scott)", "Green Lantern (Jessica Cruz)", "Blue Devil", "Captain Atom",
         "Doctor Fate", "Etrigan the Demon", "The Creeper", "Plastic Man", "Ragman",
         "The Question (Renee Montoya)", "Black Canary", "Mr. Miracle", "Big Barda", "The Ray",
-        "Elongated Man", "Fire", "Ice","Animal Man"
+        "Elongated Man", "Fire", "Ice", "Animal Man"
     ]
     var txt = ''
     while (size > 0) {
@@ -182,7 +182,7 @@ function makeLabel(size = 3) {
     return labels
 }
 function makeImage(size = 1) {
-    const toyIcons = ["🧸", "🚗","🎨","🎆","🌞","☔","⚡","🎌","🗼","🗽","🛴","🛵","🚍","🚋","🦼","🚖","🚜","🦽","🕋","🚲","⛑","🏈","🎱","⛳","💎","👑","⚽","👓","🏏","🤿","🎣","🏐","🏀","🥎","🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */];
+    const toyIcons = ["🧸", "🚗", "🎨", "🎆", "🌞", "☔", "⚡", "🎌", "🗼", "🗽", "🛴", "🛵", "🚍", "🚋", "🦼", "🚖", "🚜", "🦽", "🕋", "🚲", "⛑", "🏈", "🎱", "⛳", "💎", "👑", "⚽", "👓", "🏏", "🤿", "🎣", "🏐", "🏀", "🥎", "🏉", "🎲", "🎮", "🎯", /* Add more toy icons here */]
     var icon = ''
     while (size > 0) {
         size--

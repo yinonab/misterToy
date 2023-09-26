@@ -48,8 +48,8 @@ function query(filterBy = {}) {
 //         }
 //         if (filterBy.labels && filterBy.labels.length > 0) {
 //             toyToDisplay = toyToDisplay.filter(toy => {
-//                 return toy.labels.some(label => filterBy.labels.includes(label));
-//             });
+//                 return toy.labels.some(label => filterBy.labels.includes(label))
+//             })
 //         }
 //         // return axios.get(BASE_URL).then(res => res.data)
 //         // return toyToDisplay
@@ -98,12 +98,12 @@ function getEmptyToy() {
         labels: utilService.makeLabel(),
         createdAt: utilService.getTimeFromStamp(Date.now()),
         inStock: utilService.randomTrueFalse(),
-        icon:utilService.makeImage()
+        icon: utilService.makeImage()
     }
 }
 
 function getDefaultFilter() {
-    return { txt: '', labels: [], inStock: undefined, pageIdx: 0 };
+    return { txt: '', labels: [], inStock: undefined, pageIdx: 0 }
 }
 
 function _createToys() {
@@ -143,19 +143,19 @@ function getToyLabels() {
     return labels
 }
 
-function getLabels(toys){
+function getLabels(toys) {
     let labels = {}
-    toys.map(toy=>{
-        toy.labels.map(label=>{
-            if(!labels[label])labels[label] = 0
-            labels[label] ++
+    toys.map(toy => {
+        toy.labels.map(label => {
+            if (!labels[label]) labels[label] = 0
+            labels[label]++
         })
     })
     return labels
 }
-function getDataValues(labels){
-    var newData=[]
-    for(var i=0;i<Object.keys(labels).length;i++){
+function getDataValues(labels) {
+    var newData = []
+    for (var i = 0; i < Object.keys(labels).length; i++) {
         newData.push(Object.values(labels)[i])
     }
     return newData

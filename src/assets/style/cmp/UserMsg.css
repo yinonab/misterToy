@@ -14,11 +14,11 @@
 }
 
 .user-msg.error {
-    background-color:  #577D86
+    background-color: #577D86
 }
 
 
-.user-msg button{
+.user-msg button {
     float: right;
     margin: 1em;
 }

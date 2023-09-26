@@ -1,85 +1,85 @@
 .div-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .custom-h3 {
-    color: #333;
-    font-family: 'Chakra Petch', sans-serif;
+  color: #333;
+  font-family: 'Chakra Petch', sans-serif;
 }
 
 .custom-main {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .btn-add-toy {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Righteous', cursive;
-    margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Righteous', cursive;
+  margin-top: 20px;
 }
 
 .btn-add-toy:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 20px 0;
-    padding: 0;
-  }
-  
-  .pagination li {
-    margin: 0 5px;
-    display: inline-block;
-    font-size: 16px;
-    background-color:var(--clr5);
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    padding: 8px 16px;
-  }
-  
-  .pagination li.active {
-    background-color: var(--clr6);
-  }
-  
-  .pagination li.previous,
-  .pagination li.next {
-    font-weight: bold;
-    background-color: #f0f0f0;
-    color: #333;
-    font-family: 'Indie Flower', cursive;
-  }
-  
-  .pagination li.previous:hover,
-  .pagination li.next:hover {
-    background-color: #ddd;
-  }
-  
-  .pagination li.break {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    
-  }
-  
-  .pagination li.previous.disabled,
-  .pagination li.next.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-    background-color: #ccc;
-    color: #666;
-  }
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  display: inline-block;
+  font-size: 16px;
+  background-color: var(--clr5);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 8px 16px;
+}
+
+.pagination li.active {
+  background-color: var(--clr6);
+}
+
+.pagination li.previous,
+.pagination li.next {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: 'Indie Flower', cursive;
+}
+
+.pagination li.previous:hover,
+.pagination li.next:hover {
+  background-color: #ddd;
+}
+
+.pagination li.break {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+
+}
+
+.pagination li.previous.disabled,
+.pagination li.next.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: #ccc;
+  color: #666;
+}

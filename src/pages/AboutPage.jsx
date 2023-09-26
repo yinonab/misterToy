@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import GoogleMapReact from 'google-map-react';
+import React, { useState } from "react"
+import GoogleMapReact from 'google-map-react'
 import { API_KEY } from '../../secret'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>
@@ -39,7 +39,7 @@ export function AboutPage() {
                     Welcome to toy store
                 </h1>
                 <p className="about-p">
-                    The Mr Toys project was created as part of a end to end project by 
+                    The Mr Toys project was created as part of a end to end project by
                     <li>Hodeda Oz</li>
                     <li>Abarjel Yinon</li>
                     <li>Sasson Itamar</li>
@@ -60,7 +60,7 @@ export function AboutPage() {
                         text="🚩"
                     />
                 </GoogleMapReact>
-               
+
                 <ul className="btn-branches">
                     <h3 className="branches-title">branches</h3>
                     <li>
@@ -73,7 +73,7 @@ export function AboutPage() {
                         <button id='bat yam' onClick={goToLocation}> Bat-Yam</button>
                     </li>
                 </ul>
-             </div>
+            </div>
 
         </section>
     )

@@ -17,8 +17,8 @@
   border-radius: 8px;
   box-shadow: 0px 0px 5px 0px #ccc;
   margin-bottom: 20px;
-  margin: 0 auto; 
-  display: flex; 
+  margin: 0 auto;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
@@ -26,27 +26,37 @@
 
 /* Media query for screens up to 1260px */
 @media screen and (max-width: 1260px) {
+
   .toy-list,
   .toy-filter {
-    grid-template-columns: repeat(2, 1fr); /* Adjust grid columns for medium screens */
+    grid-template-columns: repeat(2, 1fr);
+    /* Adjust grid columns for medium screens */
   }
 }
 
 /* Media query for screens under 768px */
 @media screen and (max-width: 768px) {
+
   .toy-list,
   .toy-filter {
-    grid-template-columns: repeat(1, 1fr); /* Adjust grid columns for small screens */
+    grid-template-columns: repeat(1, 1fr);
+    /* Adjust grid columns for small screens */
   }
 
   .toy-filter {
-    min-width: auto; /* Reset min-width */
-    max-height: auto; /* Reset max-height */
-    display: block; /* Reset flex display */
-    margin: 0; /* Reset margin */
+    min-width: auto;
+    /* Reset min-width */
+    max-height: auto;
+    /* Reset max-height */
+    display: block;
+    /* Reset flex display */
+    margin: 0;
+    /* Reset margin */
   }
-  .toy-filter > * {
-    margin-bottom: 20px; /* Add margin between items */
+
+  .toy-filter>* {
+    margin-bottom: 20px;
+    /* Add margin between items */
   }
 }
 
@@ -54,5 +64,5 @@
 @media screen and (max-width: 500px) {
   .toy-filter {
     /* Further adjustments for very small screens if needed */
-}
+  }
 }
