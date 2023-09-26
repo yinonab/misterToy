@@ -1,30 +1,89 @@
 .main-layout {
-    display: grid;
-    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: $layoutPadding 1fr $layoutPadding;
 
-    >*.full {
-        grid-column: 1 / -1;
+    // >*.full {
+    //     grid-column: 1 / -1;
+    // }
+
+    // >*:not(.full) {
+    //     grid-column: 2;
+    //     display: grid;
+    //     grid-auto-flow: dense;
+    //     grid-template-columns: repeat(3, 1fr);
+    // }
+}
+
+
+@include for-mobile-layout {
+    .toy-preview {
+        width: 20em;
+        margin: 5px;
     }
 
-    >*:not(.full) {
-        grid-column: 2;
-        display: grid;
-        grid-auto-flow: dense;
-        grid-template-columns: repeat(3, 1fr);
+    .toy-filter {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center // margin-bottom: 20px;
+            /* Add margin between items */
     }
 
-    @include for-narrow-layout {
-        @include layoutGTC($break-narrow);
-    }
+    .toy-list {
+        grid-template-columns: repeat(1, 1fr);
 
-    @include for-normal-layout {
-        @include layoutGTC($break-normal);
-    }
-
-    @include for-wide-layout {
-        @include layoutGTC($break-wide);
     }
 }
+
+@include for-narrow-layout {
+
+    .toy-preview {
+        width: 17em;
+        margin: 5px;
+    }
+
+    .toy-list {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+
+@include for-normal-layout {
+    .toy-preview {
+        width: 17em;
+        margin: 5px;
+    }
+
+    .toy-list {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+@include for-wide-layout {
+    
+    
+    .toy-list {
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+}
+@include for-X-wide-layout {
+    
+    
+    .toy-list {
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+}
+
+
+// body {
+//     @include for-normal-layout{
+//         background-color: palevioletred;
+//     }
+// }
 
 
 .main-text {

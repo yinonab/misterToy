@@ -76,7 +76,7 @@ export function ToyIndex() {
             {/* <h3 className="custom-h3">Toys App</h3> */}
             <main className="custom-main">
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-                <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
+                <button className="btn add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
                     toys={displayedToys}
                     onRemoveToy={onRemoveToy}

@@ -1,11 +1,12 @@
 /*SASS - SET-UP*/
 
-@import 'setup/_variables.scss';
-@import 'setup/_mixins.scss';
-@import 'setup/_functions.scss';
+@import 'setup/variables.scss';
+@import 'setup/mixins.scss';
+@import 'setup/functions.scss';
 
 // BASICS
-@import 'base/layout.scss';
+@import 'base/layout';
+@import 'base/base.scss';
 
 /*SASS - cmp*/
-@import 'cmp/_AppHeader.scss';
+@import 'cmp/AppHeader.scss';

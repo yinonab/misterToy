@@ -61,7 +61,7 @@ export function AboutPage() {
                     />
                 </GoogleMapReact>
 
-                <ul className="btn-branches">
+                <ul className="btn branches">
                     <h3 className="branches-title">branches</h3>
                     <li>
                         <button id='tel aviv' onClick={goToLocation}>Tel-Aviv</button>

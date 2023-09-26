@@ -102,7 +102,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
 
 
       <div>
-        <button className="remove-btn" onClick={() => onRemoveToy(toy._id)}>
+        <button className="btn-remove" onClick={() => onRemoveToy(toy._id)}>
           <i className="fa-solid fa-trash"></i>
         </button>
         {/* <button className="edit-btn" onClick={() => onEditToy(toy)}>

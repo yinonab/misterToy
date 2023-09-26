@@ -23,13 +23,18 @@
     @content;
   }
 }
-
-@mixin layoutGTC($max) {
-  grid-template-columns:
-    minmax($layoutPadding, 1fr)
-    minmax(auto, $max)
-    minmax($layoutPadding, 1fr);
+@mixin for-X-wide-layout {
+  @media (min-width: $break-X-wide) {
+    @content;
+  }
 }
+
+// @mixin layoutGTC($max) {
+//   grid-template-columns:
+//     minmax($layoutPadding, 1fr)
+//     minmax(auto, $max)
+//     minmax($layoutPadding, 1fr);
+// }
 
 /* Media  Mixins */
 
@@ -67,17 +72,19 @@
 
 // Buttons
 
-@mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
+@mixin btn($type: regular, $bg: $clr8, $clr: $clr0, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   text-transform: uppercase;
-  padding: $padding;
+  padding:em(10px) em(20px);
   line-height: 1.25;
-  font-size: em(14px);
-  font-variation-settings: "wght" 430;
+  font-size: em(16px);
   border: none;
+  // font-variation-settings: "wght" 430;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 
   transition: background-color 0.2s;
 
@@ -102,7 +109,16 @@
       color: $clr3;
     }
   }
+   @else if $type == remove {
+    background-color: $clr9;
+    color: $clr0;
+    &:hover {
+      background-color: $clr10;
+      color: $clr0;
+    }
+  }
 }
+
 
 // Type
 
