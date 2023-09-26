@@ -25,7 +25,7 @@
 }
 
 /* Media query for screens up to 1260px */
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1460px) {
 
   .toy-list,
   .toy-filter {
@@ -35,13 +35,17 @@
 }
 
 /* Media query for screens under 768px */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
 
   .toy-list,
   .toy-filter {
     grid-template-columns: repeat(1, 1fr);
     /* Adjust grid columns for small screens */
   }
+  .toy-preview{
+    width: 15em;
+    margin: 10px;
+    }
 
   .toy-filter {
     min-width: auto;

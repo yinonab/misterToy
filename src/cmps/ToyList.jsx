@@ -40,6 +40,7 @@ export function ToyList({ toys, onRemoveToy, onEditToy }) {
                 />
                 Descending Order
             </label>
+            <h4>You can edit toy by click on the fields</h4>
             <ul className="toy-list">
                 {sortedToys.map((toy) => (
                     <li className="toy-preview" key={toy._id}>
