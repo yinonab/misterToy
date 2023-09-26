@@ -39,12 +39,12 @@ export function AboutPage() {
                     Welcome to toy store
                 </h1>
                 <p className="about-p">
-                    The store was created as part of the bootcamp by 3 students
-                    <li>Oz Hodeda</li>
-                    <li>Yinon Abarjel</li>
-                    <li>Itamar Sasson</li>
-                    in the store you can find any toys tou want <br />
-                    you can filter them sort them and see any details about the toys
+                    The Mr Toys project was created as part of a end to end project by 
+                    <li>Hodeda Oz</li>
+                    <li>Abarjel Yinon</li>
+                    <li>Sasson Itamar</li>
+                    In the store you can find and buy any toys you want <br />
+                    The toys can be filtered, sorted and to see details about the toys
                 </p>
             </div>
 
