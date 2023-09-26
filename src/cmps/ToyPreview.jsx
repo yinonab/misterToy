@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { saveToy } from '../store/actions/toy.action'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 
 
 // List of toy icons
@@ -29,9 +30,11 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
         const toyToSave = { ...toy, name: editedName, price: editedPrice }
         saveToy(toyToSave)
           .then((savedToy) => {
-            console.log(`Toy updated to name: ${savedToy.name}, price: $${savedToy.price}`)
+            showSuccessMsg(`Toy updated: $${savedToy.name}`)
+            console.log(`Toy updated to name: ${savedToy.name}, price: $${savedToy.name}`)
           })
           .catch((err) => {
+            showErrorMsg('Cannot update toy')
             console.error("Cannot update toy", err)
           })
       }
@@ -48,6 +51,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     const toggleInStock = () => {
         const updatedToy = { ...toy, inStock: !toy.inStock };
         saveToy(updatedToy);
+        showSuccessMsg(`Toy updated to price: $${updatedToy._id}`)
       };
     
   
