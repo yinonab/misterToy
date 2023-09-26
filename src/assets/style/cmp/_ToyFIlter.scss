@@ -1,0 +1,44 @@
+.toy-filter {
+    background-color: $clr4;
+    /* min-width: 450px;
+    max-height: 350px; */
+    padding: em(10px);
+    border-radius: em(8px);
+    box-shadow: 0px 0px 5px 0px #ccc;
+    margin-bottom: em(20px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
+  .toy-filter h2 {
+    font-size: rem(24px);
+    margin-bottom: em(15px);
+    color: $clr7;
+    font-family: 'Righteous', cursive;
+  }
+  
+  .filter-group {
+    margin-bottom: em(15px);
+  }
+  
+  label {
+    font-size: rem(16px);
+    font-weight: bold;
+    color: $clr7;
+    font-family: 'Indie Flower', cursive;
+  }
+  
+  input[type="text"],
+  select {
+    padding: em(8px);
+    border-radius: em(4px);
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  select[multiple] {
+    height: 100px;
+  }
