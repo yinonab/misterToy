@@ -96,7 +96,7 @@ export function DashboardPage() {
                 <Bar data={dataBar} />
             </div>
             <h4>Stock by labels</h4>
-            <section className="chart" style={{ maxWidth: "50vw", margin: "auto" }}>
+            <section className="chart" style={{ maxWidth: "30vw", margin: "auto" }}>
                 <Doughnut data={dataDoughnut} />
             </section>
             </div>
