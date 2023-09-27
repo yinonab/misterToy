@@ -1,17 +1,18 @@
 /*SASS - SET-UP*/
 
-@import 'setup/variables.scss';
-@import 'setup/mixins.scss';
-@import 'setup/functions.scss';
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
 
 // BASICS
 @import 'base/layout';
-@import 'base/base.scss';
+@import 'base/base';
 
 /*SASS - cmp*/
-@import 'cmp/AppHeader.scss';
-@import 'cmp/AboutPage.scss';
-@import 'cmp/HomePage.scss';
-@import 'cmp/ToyDetails.scss';
-@import 'cmp/ToyFIlter.scss';
-@import 'cmp/ToyIndex.scss';
+@import 'cmp/AppHeader';
+@import 'cmp/AboutPage';
+@import 'cmp/HomePage';
+@import 'cmp/ToyDetails';
+@import 'cmp/ToyFIlter';
+@import 'cmp/ToyIndex';
+@import 'cmp/ToyList';

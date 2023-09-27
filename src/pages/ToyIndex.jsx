@@ -14,7 +14,7 @@ export function ToyIndex() {
     const { toys } = useSelector(storeState => storeState.toyModule)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const [currentPage, setCurrentPage] = useState(0)
-    const itemsPerPage = 9
+    const itemsPerPage = 10
 
     const startIndex = currentPage * itemsPerPage
     const endIndex = startIndex + itemsPerPage
