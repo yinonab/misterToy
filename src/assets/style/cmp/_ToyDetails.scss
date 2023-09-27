@@ -1,0 +1,117 @@
+.toy-details {
+    /* border: 1px solid #ccc; */
+    padding: 20px;
+    margin: 20px;
+    background-color:$clr11;
+  }
+  
+  .toy-name-details {
+    color: $clr2;
+    font-size: em(24px);
+    font-family: 'Indie Flower', cursive;
+  }
+  
+  .toy-price-details {
+    font-size: em(18px);
+    color: $clr3;
+    font-family: 'Righteous', cursive;
+  
+  }
+  
+  .toy-created-date {
+    font-size: em(16px);
+    color: $clr12;
+    font-family: 'Righteous', cursive;
+  
+  }
+  
+  .toy-labels {
+    font-size: em(16px);
+    color: $clr12;
+    font-family: 'Righteous', cursive;
+  
+  }
+  
+  .toy-emoji {
+    font-size: em(36px);
+  }
+  
+  .toy-description-heading {
+    font-size: em(20px);
+    color: $clr12;
+    margin-top: em(20px);
+    font-family: 'Righteous', cursive;
+  
+  }
+  
+  .toy-description {
+    font-size: em(16px);
+    color: $clr12;
+    font-family: 'Indie Flower', cursive;
+  
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: em(20px);
+    text-decoration: none;
+    background-color: $clr5;
+    color: $clr0;
+    padding:em(10px) em(20px);
+    border-radius: 5px;
+  }
+  
+  .back-link:hover {
+    background-color: $clr6;
+  }
+  
+  .center-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: em(80px);
+    height: em(80px);
+  }
+  
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: em(8px);
+    width: em(16px);
+    background:$clr13;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+  
+    50%,
+    100% {
+      top: 24px;
+      height: 32px;
+    }
+  }

@@ -14,7 +14,7 @@ export function ToyIndex() {
     const { toys } = useSelector(storeState => storeState.toyModule)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const [currentPage, setCurrentPage] = useState(0)
-    const itemsPerPage = 9
+    const itemsPerPage = 10
 
     const startIndex = currentPage * itemsPerPage
     const endIndex = startIndex + itemsPerPage
@@ -32,7 +32,7 @@ export function ToyIndex() {
     function onRemoveToy(toyId) {
         removeToy(toyId)
             .then(() => {
-                showSuccessMsg('toy removed')
+                showSuccessMsg(`toy ${toyId} removed`)
             })
             .catch(err => {
                 console.log('Cannot remove toy', err)
@@ -76,7 +76,7 @@ export function ToyIndex() {
             {/* <h3 className="custom-h3">Toys App</h3> */}
             <main className="custom-main">
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-                <button className="btn-add-toy" onClick={onAddToy}>add Toy 🧸</button>
+                <button className="btn add-toy" onClick={onAddToy}>add Toy 🧸</button>
                 <ToyList
                     toys={displayedToys}
                     onRemoveToy={onRemoveToy}

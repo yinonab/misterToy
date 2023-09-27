@@ -48,7 +48,7 @@ export function AboutPage() {
                 </p>
             </div>
 
-            <div className="store-map" style={{ height: '50vh', width: '50%' }}>
+            <div className="store-map flex" style={{ height: '50vh', width: '50%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
                     center={coordinates}
@@ -61,16 +61,16 @@ export function AboutPage() {
                     />
                 </GoogleMapReact>
 
-                <ul className="btn-branches">
+                <ul className="branches">
                     <h3 className="branches-title">branches</h3>
                     <li>
-                        <button id='tel aviv' onClick={goToLocation}>Tel-Aviv</button>
+                        <button className="btn" id='tel aviv' onClick={goToLocation}>Tel-Aviv</button>
                     </li>
                     <li>
-                        <button id='hadera' onClick={goToLocation}>Hadera</button>
+                        <button className="btn" id='hadera' onClick={goToLocation}>Hadera</button>
                     </li>
                     <li>
-                        <button id='bat yam' onClick={goToLocation}> Bat-Yam</button>
+                        <button className="btn" id='bat yam' onClick={goToLocation}> Bat-Yam</button>
                     </li>
                 </ul>
             </div>

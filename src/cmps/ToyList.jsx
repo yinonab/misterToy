@@ -29,8 +29,8 @@ export function ToyList({ toys, onRemoveToy, onEditToy }) {
     return (
         <div>
             <div className="sorting-buttons">
-                <button className="btn-name-toy" onClick={() => handleSort('name')}>Sort by Name</button>
-                <button className="btn-price-toy" onClick={() => handleSort('price')}>Sort by Price</button>
+                <button className="btn name-toy" onClick={() => handleSort('name')}>Sort by Name</button>
+                <button className="btn price-toy" onClick={() => handleSort('price')}>Sort by Price</button>
             </div>
             <label>
                 <input

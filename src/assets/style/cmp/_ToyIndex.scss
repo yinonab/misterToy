@@ -1,0 +1,85 @@
+.div-container {
+    background-color:$clr0;
+    padding: em(20px);
+    border: 1px solid #ccc;
+    border-radius: em(8px);
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-h3 {
+    color:$clr12;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+  
+  .custom-main {
+    margin-top: em(20px);
+  }
+  
+//   .btn-add-toy {
+//     background-color:$clr7;
+//     color: $clr0;
+//     padding:em(10px) em(20px);
+//     border: none;
+//     border-radius: em(5px);
+//     cursor: pointer;
+//     font-size: em(16px);
+//     font-family: 'Righteous', cursive;
+//     margin-top: em(20px);
+//   }
+  
+//   .btn-add-toy:hover {
+//     background-color:$clr8;
+//   }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: em(10px) 0;
+    padding: 0;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+    display: inline-block;
+    font-size: em(16px);
+    background-color: $clr5;
+    color: $clr0;
+    border-radius: em(4px);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    padding: em(8px) em(16px);
+  }
+  
+  .pagination li.active {
+    background-color: $clr6;
+  }
+  
+  .pagination li.previous,
+  .pagination li.next {
+    font-weight: bold;
+    background-color: $clr0;
+    color: $clr12;
+    font-family: 'Indie Flower', cursive;
+  }
+  
+  .pagination li.previous:hover,
+  .pagination li.next:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination li.break {
+    font-size: em(16px);
+    font-weight: bold;
+    color: $clr12;
+  
+  }
+  
+  .pagination li.previous.disabled,
+  .pagination li.next.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background-color: #ccc;
+    color: #666;
+  }
