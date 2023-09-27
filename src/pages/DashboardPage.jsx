@@ -76,31 +76,41 @@ export function DashboardPage() {
 
         <>
         <h2>Toy Stock Overview</h2>
-        <div className="graph-container">
-            <div className="stock-info">
-                <div className="stock-item">
-                    <h3>In Stock</h3>
-                    <p className="count">{inStockCount}</p>
-                </div>
-                <div className="stock-item">
-                    <h3>Out of Stock</h3>
-                    <p className="count">{outOfStockCount}</p>
-                </div>
-                <div className="stock-item">
-                    <h3>All Toys</h3>
-                    <p className="count">{toys.length}</p>
-                </div>
-            </div>
-            <h4>Stock Status</h4>
-            <div className="chart">
-                <Bar data={dataBar} />
-            </div>
-            <h4>Stock by labels</h4>
-            <section className="chart" style={{ maxWidth: "30vw", margin: "auto" }}>
-                <Doughnut data={dataDoughnut} />
-            </section>
-            </div>
-        </>
+  <div className="graph-container">
+    <div className="stock-info">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="tr">
+            <td>In Stock</td>
+            <td className="count">{inStockCount}</td>
+          </tr>
+          <tr className="tr">
+            <td>Out of Stock</td>
+            <td className="count">{outOfStockCount}</td>
+          </tr>
+          <tr className="tr">
+            <td>All Toys</td>
+            <td className="count">{toys.length}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Stock Status</h4>
+    <div className="chart">
+      <Bar data={dataBar} />
+    </div>
+    <h4>Stock by labels</h4>
+    <section className="chart" style={{ maxWidth: "30vw", margin: "auto" }}>
+      <Doughnut data={dataDoughnut} />
+    </section>
+  </div>
+</>
 
 
     );

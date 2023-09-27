@@ -70,6 +70,14 @@
   }
 }
 
+@mixin tr($bcg, $hover: darken($bcg, 8%)) {
+  background-color: $bcg;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover;
+  }
+}
+
 // Buttons
 
 @mixin btn($type: regular, $bg: $clr8, $clr: $clr0, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
