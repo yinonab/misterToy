@@ -7,16 +7,17 @@
         grid-column: 1 / -1;
     }
 
-    >*:not(.full) {
-        grid-column: 2;
-        display: grid;
-        grid-auto-flow: dense;
-        // grid-template-columns: repeat(3, 1fr);
-    }
+    // >*:not(.full) {
+    //     grid-column: 2;
+    //     display: grid;
+    //     grid-auto-flow: dense;
+    //     // grid-template-columns: repeat(3, 1fr);
+    // }
 }
 
 
 @include for-mobile-layout {
+    
     .toy-preview {
         width: 20em;
         margin: 5px;

@@ -51,74 +51,57 @@ export function DashboardPage() {
         ],
     };
 
-    const dataBarInStock = {
-        labels: ["In Stock"],
+    const dataBar = {
+        labels: ["In Stock", "Out of Stock", "All Toys"],
         datasets: [
             {
-                label: "Toys In Stock",
-                data: [inStockCount],
-                backgroundColor: ["rgba(75, 192, 192, 0.2)"],
-                borderColor: ["rgba(75, 192, 192, 1)"],
-                borderWidth: 1,
-            },
-        ],
-    };
-
-    const dataBarOutOfStock = {
-        labels: ["Out of Stock"],
-        datasets: [
-            {
-                label: "Toys Out of Stock",
-                data: [outOfStockCount],
-                backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-                borderColor: ["rgba(255, 99, 132, 1)"],
-                borderWidth: 1,
-            },
-        ],
-    };
-
-    // Count of all toys
-    const allToysCount = toys.length;
-
-    const dataBarAllToys = {
-        labels: ["All Toys"],
-        datasets: [
-            {
-                label: "All Toys Count",
-                data: [allToysCount],
-                backgroundColor: ["rgba(255, 206, 86, 0.2)"],
-                borderColor: ["rgba(255, 206, 86, 1)"],
+                label: "Toy Stock Overview",
+                data: [inStockCount, outOfStockCount, toys.length],
+                backgroundColor: [
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                ],
+                borderColor: [
+                    "rgba(75, 192, 192, 1)",
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(255, 206, 86, 1)",
+                ],
                 borderWidth: 1,
             },
         ],
     };
 
     return (
-      <div>
-      <h2>Toy Stock Overview</h2>
-      <div className="stock-info">
-        <div className="stock-item">
-          <h3>In Stock</h3>
-          <p>{inStockCount}</p>
-        </div>
-        <div className="stock-item">
-          <h3>Out of Stock</h3>
-          <p>{outOfStockCount}</p>
-        </div>
-        <div className="stock-item">
-          <h3>All Toys</h3>
-          <p>{allToysCount}</p>
-        </div>
-      </div>
-      <div className="chart-container">
-      
-          <section style={{ maxWidth: "60vw", margin: "auto" }}>
-        <Doughnut data={dataDoughnut} />
-    </section>
-        <Bar data={dataBarInStock} />
-        <Bar data={dataBarOutOfStock} />
-        <Bar data={dataBarAllToys} />
-      </div>
-      </div>
+
+        <>
+        <h2>Toy Stock Overview</h2>
+        <div className="graph-container">
+            <div className="stock-info">
+                <div className="stock-item">
+                    <h3>In Stock</h3>
+                    <p className="count">{inStockCount}</p>
+                </div>
+                <div className="stock-item">
+                    <h3>Out of Stock</h3>
+                    <p className="count">{outOfStockCount}</p>
+                </div>
+                <div className="stock-item">
+                    <h3>All Toys</h3>
+                    <p className="count">{toys.length}</p>
+                </div>
+            </div>
+            <h4>Stock Status</h4>
+            <div className="chart">
+                <Bar data={dataBar} />
+            </div>
+            <h4>Stock by labels</h4>
+            <section className="chart" style={{ maxWidth: "50vw", margin: "auto" }}>
+                <Doughnut data={dataDoughnut} />
+            </section>
+            </div>
+        </>
+
+
     );
 }
