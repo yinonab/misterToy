@@ -3,6 +3,10 @@
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
+@import 'setup/_variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+@import'setup/typography';
 
 // BASICS
 @import 'base/layout';
@@ -16,3 +20,5 @@
 @import 'cmp/ToyFIlter';
 @import 'cmp/ToyIndex';
 @import 'cmp/ToyList';
+@import 'cmp/ToyPreview';
+@import 'cmp/UserMsg';
