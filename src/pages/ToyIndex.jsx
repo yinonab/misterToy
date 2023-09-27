@@ -32,7 +32,7 @@ export function ToyIndex() {
     function onRemoveToy(toyId) {
         removeToy(toyId)
             .then(() => {
-                showSuccessMsg('toy removed')
+                showSuccessMsg(`toy ${toyId} removed`)
             })
             .catch(err => {
                 console.log('Cannot remove toy', err)

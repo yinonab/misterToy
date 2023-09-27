@@ -30,8 +30,8 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
       const toyToSave = { ...toy, name: editedName, price: editedPrice }
       saveToy(toyToSave)
         .then((savedToy) => {
-          showSuccessMsg(`Toy updated: $${savedToy.name}`)
-          console.log(`Toy updated to name: ${savedToy.name}, price: $${savedToy.name}`)
+          showSuccessMsg(`Toy updated: ${savedToy.name}`)
+          console.log(`Toy updated to name: ${savedToy.name}, price: ${savedToy.name}`)
         })
         .catch((err) => {
           showErrorMsg('Cannot update toy')
@@ -51,7 +51,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
   const toggleInStock = () => {
     const updatedToy = { ...toy, inStock: !toy.inStock };
     saveToy(updatedToy);
-    showSuccessMsg(`Toy updated to price: $${updatedToy._id}`)
+    showSuccessMsg(`Toy updated to : ${updatedToy.name}`)
   }
 
 

@@ -1,7 +1,6 @@
 import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
-import './assets/style/main.css'
 import './assets/style/main.scss'
 import { ToyIndex } from './pages/ToyIndex'
 import { AppHeader } from './cmps/AppHeader'
