@@ -3,16 +3,16 @@
     flex-direction: column;
     // grid-template-columns: $layoutPadding 1fr $layoutPadding;
 
-    // >*.full {
-    //     grid-column: 1 / -1;
-    // }
+    >*.full {
+        grid-column: 1 / -1;
+    }
 
-    // >*:not(.full) {
-    //     grid-column: 2;
-    //     display: grid;
-    //     grid-auto-flow: dense;
-    //     grid-template-columns: repeat(3, 1fr);
-    // }
+    >*:not(.full) {
+        grid-column: 2;
+        display: grid;
+        grid-auto-flow: dense;
+        // grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 

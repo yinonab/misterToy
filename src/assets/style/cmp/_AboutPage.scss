@@ -40,18 +40,25 @@
 }
 
 .store-map {
+    display: flex;
+    flex-direction: row;
+
     flex-basis: 100%;
-    max-width: 50%;
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
+    .branches {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: em(100px);
+        flex-basis: 100%;
+        max-width: calc(50% - 20px);
+        margin-left: 20px;
+    }
+    
 }
 
-.btn-branches {
-    flex-basis: 100%;
-    max-width: calc(50% - 20px);
-    margin-left: 20px;
-}
 
 .branches-title {
     font-size: 28px;
@@ -61,9 +68,12 @@
     text-transform: uppercase;
 }
 
-.btn-branches li {
+.branches  {
     margin: 10px 0;
-    list-style: none;
+    li{
+        list-style: none;
+
+    }
 }
 
 // .btn-branches button {
