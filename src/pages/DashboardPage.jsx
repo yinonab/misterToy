@@ -75,42 +75,42 @@ export function DashboardPage() {
     return (
 
         <>
-        <h2>Toy Stock Overview</h2>
-  <div className="graph-container">
-    <div className="stock-info">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="tr">
-            <td>In Stock</td>
-            <td className="count">{inStockCount}</td>
-          </tr>
-          <tr className="tr">
-            <td>Out of Stock</td>
-            <td className="count">{outOfStockCount}</td>
-          </tr>
-          <tr className="tr">
-            <td>All Toys</td>
-            <td className="count">{toys.length}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h4>Stock Status</h4>
-    <div className="chart">
-      <Bar data={dataBar} />
-    </div>
-    <h4>Stock by labels</h4>
-    <section className="chart" style={{ maxWidth: "30vw", margin: "auto" }}>
-      <Doughnut data={dataDoughnut} />
-    </section>
-  </div>
-</>
+            <h2 className="dashboard-titles">Toy Stock Overview</h2>
+            <div className="graph-container">
+                <div className="stock-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="tr">
+                                <td>In Stock</td>
+                                <td className="count">{inStockCount}</td>
+                            </tr>
+                            <tr className="tr">
+                                <td>Out of Stock</td>
+                                <td className="count">{outOfStockCount}</td>
+                            </tr>
+                            <tr className="tr">
+                                <td>All Toys</td>
+                                <td className="count">{toys.length}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4 className="dashboard-titles">Stock Status</h4>
+                <div className="chart">
+                    <Bar data={dataBar} />
+                </div>
+                <h4 className="dashboard-titles"> Stock by labels</h4>
+                <section className="chart" style={{ maxWidth: "30vw", margin: "auto" }}>
+                    <Doughnut data={dataDoughnut} />
+                </section>
+            </div>
+        </>
 
 
     );

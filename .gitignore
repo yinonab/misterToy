@@ -26,3 +26,4 @@ deps
 
 #keys
 .env
+secret.js
