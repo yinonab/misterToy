@@ -21,7 +21,7 @@ export const userService = {
 window.us = userService
 
 function getById(userId) {
-    return storageService.get(STORAGE_KEY, userId)
+    return storageService.get(BASE_URL, userId)
 }
 
 function login({ username, password }) {
@@ -66,7 +66,7 @@ function getLoggedinUser() {
 }
 
 function _setLoggedinUser(user) {
-    const userToSave = { _id: user._id, fullname: user.fullname, score: user.score }
+    const userToSave = { _id: user._id, fullname: user.fullname, isAdmin: user.isAdmin }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
     return userToSave
 }

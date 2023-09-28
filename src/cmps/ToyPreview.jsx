@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { saveToy } from '../store/actions/toy.action'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { useSelector } from "react-redux"
 
 
 // List of toy icons
@@ -12,14 +13,24 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
   const [isEditingPrice, setIsEditingPrice] = useState(false)
   const [editedName, setEditedName] = useState(toy.name)
   const [editedPrice, setEditedPrice] = useState(toy.price)
+  const user = useSelector(storeState => storeState.userModule.loggedinUser)
+
+  
+
+
+  const isAdmin = user && user.isAdmin;
 
   const handleNameClick = () => {
-    setIsEditingName(true)
-  }
+    if (isAdmin) {
+      setIsEditingName(true);
+    }
+  };
 
   const handlePriceClick = () => {
-    setIsEditingPrice(true)
-  }
+    if (isAdmin) {
+      setIsEditingPrice(true);
+    }
+  };
 
   const handleBlur = () => {
     setIsEditingName(false)
@@ -28,6 +39,7 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     // Save changes to the database
     if (editedName !== toy.name || editedPrice !== toy.price) {
       const toyToSave = { ...toy, name: editedName, price: editedPrice }
+      console.log('toyToSave:', toyToSave)
       saveToy(toyToSave)
         .then((savedToy) => {
           showSuccessMsg(`Toy updated: ${savedToy.name}`)
@@ -49,8 +61,8 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     setEditedPrice(e.target.value)
   }
   const toggleInStock = () => {
-    const updatedToy = { ...toy, inStock: !toy.inStock };
-    saveToy(updatedToy);
+    const updatedToy = { ...toy, inStock: !toy.inStock }
+    saveToy(updatedToy)
     showSuccessMsg(`Toy updated to : ${updatedToy.name}`)
   }
 

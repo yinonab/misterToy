@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { toyService } from "../services/toy.service";
-import { Doughnut, Bar } from "react-chartjs-2";
-import Chart from "chart.js/auto";
+import React, { useEffect, useState } from "react"
+import { toyService } from "../services/toy.service"
+import { Doughnut, Bar } from "react-chartjs-2"
+import Chart from "chart.js/auto"
 
 export function DashboardPage() {
-    const [toys, setToys] = useState([]);
-    const [inStockCount, setInStockCount] = useState(0);
-    const [outOfStockCount, setOutOfStockCount] = useState(0);
+    const [toys, setToys] = useState([])
+    const [inStockCount, setInStockCount] = useState(0)
+    const [outOfStockCount, setOutOfStockCount] = useState(0)
 
     useEffect(() => {
         toyService.query().then((toys) => {
-            setToys(toys);
-            const inStock = toys.filter((toy) => toy.inStock).length;
-            setInStockCount(inStock);
-            setOutOfStockCount(toys.length - inStock);
-        });
-    }, []);
+            setToys(toys)
+            const inStock = toys.filter((toy) => toy.inStock).length
+            setInStockCount(inStock)
+            setOutOfStockCount(toys.length - inStock)
+        })
+    }, [])
 
     // Calculate the label counts
     const labelCounts = toys.reduce((counts, toy) => {
         toy.labels.forEach((label) => {
-            counts[label] = (counts[label] || 0) + 1;
-        });
-        return counts;
-    }, {});
+            counts[label] = (counts[label] || 0) + 1
+        })
+        return counts
+    }, {})
 
     // Create an array of label names with counts
     const labelsWithCounts = Object.keys(labelCounts).map((label) => {
-        return `${label} (${labelCounts[label]})`;
-    });
+        return `${label} (${labelCounts[label]})`
+    })
 
     const dataDoughnut = {
         labels: labelsWithCounts,
@@ -49,7 +49,7 @@ export function DashboardPage() {
                 hoverOffset: 4,
             },
         ],
-    };
+    }
 
     const dataBar = {
         labels: ["In Stock", "Out of Stock", "All Toys"],
@@ -70,7 +70,7 @@ export function DashboardPage() {
                 borderWidth: 1,
             },
         ],
-    };
+    }
 
     return (
 
@@ -113,5 +113,5 @@ export function DashboardPage() {
 </>
 
 
-    );
+    )
 }
