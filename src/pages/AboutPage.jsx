@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import GoogleMapReact from 'google-map-react'
-import { API_KEY } from '../../secret'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 export function AboutPage() {
+    console.log('import.meta.env.VITE_API_KEY', import.meta.env.VITE_API_KEY)
 
     const [coordinates, setCoordinates] = useState({ lat: 32.0853, lng: 34.7818 })
     const zoom = 11
@@ -50,7 +50,7 @@ export function AboutPage() {
 
             <div className="store-map flex" style={{ height: '50vh', width: '50%' }}>
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: API_KEY }}
+                    bootstrapURLKeys={{ key: import.meta.env.VITE_API_KEY }}
                     center={coordinates}
                     defaultZoom={zoom}
                     onClick={handleClick}

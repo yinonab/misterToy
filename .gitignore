@@ -25,4 +25,5 @@ deps
 *.sw?
 
 #keys
+.env
 secret.js

@@ -92,5 +92,9 @@ table {
     tbody tr:hover {
         @include tr($clr0)
     }
+
+  }
+  .dashboard-titles{
+    font-family: 'Righteous', cursive;
   }
   
