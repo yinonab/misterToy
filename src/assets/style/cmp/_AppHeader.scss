@@ -6,4 +6,10 @@
     border-radius: em(8px);
     font-family: 'Righteous', cursive;
 
+    .logout-btn{
+        border-bottom: 3px solid $clr15;
+        color: $clr13;
+        background:$clr3 ;
+    }
+
 }
