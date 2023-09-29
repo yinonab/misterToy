@@ -24,41 +24,37 @@ function getById(userId) {
     return storageService.get(BASE_URL, userId)
 }
 
-function login({ username, password }) {
-    return httpService.post(BASE_URL + 'login', { username, password })
-        .then(user => {
-            if (user) return _setLoggedinUser(user)
-        })
+async function login({ username, password }) {
+    try {
+        const user = await httpService.post(BASE_URL + 'login', { username, password })
+        if (user) {
+            return  _setLoggedinUser(user)
+        }
+    } catch (err) {
+        console.log('Had issues in login', err)
+        showErrorMsg('Cannot login')
+    }
 }
 
-function signup({ username, password, fullname }) {
-    const user = { username, password, fullname, score: 10000 }
-    return httpService.post(BASE_URL + 'signup', user)
-        .then(user => {
-            if (user) return _setLoggedinUser(user)
-        })
-
+async function login({ username, password }) {
+    try {
+        const user = await httpService.post(BASE_URL + 'login', { username, password })
+        if (user) {
+            return _setLoggedinUser(user)
+        }
+    } catch (err) {
+        console.log('Had issues in login', err)
+        showErrorMsg('Cannot login')
+    }
 }
 
-function updateScore(diff) {
-    return userService.getById(getLoggedinUser()._id)
-        .then(user => {
-            if (user.score + diff < 0) return Promise.reject('No credit')
-            user.score += diff
-            return storageService.put(STORAGE_KEY, user)
-
-        })
-        .then(user => {
-            _setLoggedinUser(user)
-            return user.score
-        })
-}
-
-function logout() {
-    return httpService.post(BASE_URL + 'logout')
-        .then(() => {
-            sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
-        })
+async function logout() {
+    try {
+        await httpService.post(BASE_URL + 'logout')
+        sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
+    } catch (err) {
+        console.log('Had issues in logout', err)
+    }
 }
 
 function getLoggedinUser() {
