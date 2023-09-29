@@ -20,9 +20,10 @@
     }
     
     .logout-btn{
-        border-bottom: 3px solid $clr15;
-        color: $clr13;
+        border: none;
+        color: $clr7;
         background:$clr3 ;
+        margin-right: em(5px);
     }
 
     .fa-solid:hover{

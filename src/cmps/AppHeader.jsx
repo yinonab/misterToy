@@ -29,13 +29,13 @@ export function AppHeader() {
                 {!user && <span className="user-info">
                     <NavLink title='Login' to="/auth/login"><i className="fa-solid fa-user fa-lg"></i></NavLink>
                 </span>}
-            </nav>
-            {user && <div className="user-info">
-                {/* <p>
+                {user && <span className="user-info">
+                    {/* <p>
                     {user.fullname} <span>${user.score.toLocaleString()}</span>
                 </p> */}
-                <button className='logout-btn' onClick={onLogout}>Logout</button>
-            </div>}
+                    <button className='logout-btn' title='logout' onClick={onLogout}><i class="fa-solid fa-right-from-bracket fa-lg"></i></button>
+                </span>}
+            </nav>
         </header>
     )
 }
