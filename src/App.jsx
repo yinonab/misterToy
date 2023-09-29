@@ -9,6 +9,7 @@ import { ToyDetails } from './pages/ToyDetails'
 import { UserMsg } from './cmps/UserMsg'
 import { DashboardPage } from './pages/DashboardPage'
 import { AboutPage } from './pages/AboutPage'
+import { LoginSignup } from './cmps/LoginSignup'
 
 export function App() {
 
@@ -25,6 +26,7 @@ export function App() {
                             <Route element={<DashboardPage />} path="/dashboard" />
                             <Route element={<ToyIndex />} path="/toy" />
                             <Route element={<ToyDetails />} path="/toy/:toyId" />
+                            <Route element={<LoginSignup />} path="/auth/login" />
                         </Routes>
                     </main>
                     {/* <AppFooter /> */}
