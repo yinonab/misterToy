@@ -54,9 +54,9 @@ export function LoginSignup() {
 
     return (
         <div className="login-page">
-
             <form className="login-form" onSubmit={onSubmit}>
                 <input
+                    className="login-input"
                     type="text"
                     name="username"
                     value={username}
@@ -67,6 +67,7 @@ export function LoginSignup() {
                 />
 
                 <input
+                    className="login-input"
                     type="password"
                     name="password"
                     value={password}
@@ -75,24 +76,27 @@ export function LoginSignup() {
                     required
                 />
 
-                {isSignupState && <input
-                    type="text"
-                    name="fullname"
-                    value={fullname}
-                    placeholder="Full name"
-                    onChange={handleCredentialsChange}
-                    required
-                />}
+                {isSignupState && (
+                    <input
+                        className="login-input"
+                        type="text"
+                        name="fullname"
+                        value={fullname}
+                        placeholder="Full name"
+                        onChange={handleCredentialsChange}
+                        required
+                    />
+                )}
 
-                <button>{isSignupState ? 'Signup' : 'Login'}</button>
+                <button className="login-button">{isSignupState ? 'Signup' : 'Login'}</button>
             </form>
 
             <div className="btns">
-                <a href="#" onClick={onToggleSignupState}>
+                <a className="toggle-signup-link" href="#" onClick={onToggleSignupState}>
                     {isSignupState ? 'Already a member? Login' : 'New user? Signup here'}
-                </a >
+                </a>
             </div>
-        </div >
+        </div>
     )
 }
 
