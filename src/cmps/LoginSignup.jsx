@@ -45,24 +45,6 @@ export function LoginSignup() {
             }
         }
     }
-    //     if (isSignupState) {
-    //         signup(credentials)
-    //             .then((user) => {
-    //                 showSuccessMsg(`Welcome ${user.fullname}`)
-    //             })
-    //             .catch(err => {
-    //                 showErrorMsg('Cannot signup')
-    //             })
-    //     } else {
-    //         login(credentials)
-    //             .then((user) => {
-    //                 showSuccessMsg(`Hi again ${user.fullname}`)
-    //             })
-    //             .catch(err => {
-    //                 showErrorMsg('Cannot login')
-    //             })
-    //     }
-    // }
 
     function onToggleSignupState() {
         setIsSignupState(isSignupState => !isSignupState)

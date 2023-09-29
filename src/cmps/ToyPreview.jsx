@@ -15,9 +15,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
   const [editedPrice, setEditedPrice] = useState(toy.price)
   const user = useSelector(storeState => storeState.userModule.loggedinUser)
 
-  
-
-
   const isAdmin = user && user.isAdmin
 
   const handleNameClick = () => {
@@ -32,26 +29,26 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     }
   }
 
-  const handleBlur = () => {
+  const handleBlur = async () => {
     setIsEditingName(false)
     setIsEditingPrice(false)
 
     // Save changes to the database
     if (editedName !== toy.name || editedPrice !== toy.price) {
       const toyToSave = { ...toy, name: editedName, price: editedPrice }
-      console.log('toyToSave:', toyToSave)
-      saveToy(toyToSave)
-        .then((savedToy) => {
-          showSuccessMsg(`Toy updated: ${savedToy.name}`)
-          console.log(`Toy updated to name: ${savedToy.name}, price: ${savedToy.name}`)
-        })
-        .catch((err) => {
-          showErrorMsg('Cannot update toy')
-          console.error("Cannot update toy", err)
-        })
+      // console.log('toyToSave:', toyToSave)
+      try {
+        const savedToy = await saveToy(toyToSave)
+        showSuccessMsg(`Toy updated: ${savedToy.name}`)
+        console.log(`Toy updated to name: ${savedToy.name}, price: ${savedToy.name}`)
+
+      }
+      catch (err) {
+        showErrorMsg('Cannot update toy')
+        console.error("Cannot update toy", err)
+      }
     }
   }
-
 
   const handleNameChange = (e) => {
     setEditedName(e.target.value)
@@ -65,10 +62,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
     saveToy(updatedToy)
     showSuccessMsg(`Toy updated to : ${updatedToy.name}`)
   }
-
-
-
-
 
   return (
     <article className="toy-article">
@@ -85,9 +78,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
         )}
       </h4>
 
-
-
-
       <h1 className="toy-emoji">{toy.icon}</h1>
       <h5
         className={`toy-status-details ${toy.inStock ? "in-stock" : "out-of-stock"
@@ -96,7 +86,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
       >
         Status: {toy.inStock ? "In Stock" : "Out of Stock"}
       </h5>
-
 
       <p className="toy-price">
         {isEditingPrice ? (
@@ -110,8 +99,6 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
           <span onClick={handlePriceClick}>${editedPrice.toLocaleString()}</span>
         )}
       </p>
-
-
 
       <div>
         <button className="btn-remove" onClick={() => onRemoveToy(toy._id)}>
