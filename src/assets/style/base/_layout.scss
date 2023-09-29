@@ -34,6 +34,10 @@
         grid-template-columns: repeat(1, 1fr);
 
     }
+
+    .app-header{
+        flex-direction: column;
+    }
 }
 
 @include for-narrow-layout {

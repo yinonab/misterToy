@@ -1,15 +1,33 @@
 .app-header{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
     background: $clr3;
     color:$clr7;
 
     padding: em(16px);
     border-radius: em(8px);
     font-family: 'Righteous', cursive;
-
+    nav {
+        border: 1px solid ;
+        border-radius: 20px;
+        a {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            color: $clr7;
+        }
+    }
+    
     .logout-btn{
         border-bottom: 3px solid $clr15;
         color: $clr13;
         background:$clr3 ;
+    }
+
+    .fa-solid:hover{
+        
+        color: $clr2;
     }
 
 }

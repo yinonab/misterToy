@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-import { LoginSignup } from './LoginSignup.jsx'
 import { useSelector } from 'react-redux'
 import { logout } from '../store/actions/user.actions.js'
 
@@ -22,21 +21,21 @@ export function AppHeader() {
     return (
         <header className="app-header full">
             <h1>Toys App</h1>
-            <nav>
-                <NavLink to="/">Home</NavLink> |
-                <NavLink to="/about">About</NavLink> |
-                <NavLink to="/toy">Toys</NavLink> |
-                <NavLink to="/dashboard">Dashboard</NavLink>
+            <nav >
+                <NavLink title='Home' to="/"><i className="fa-solid fa-house fa-lg"></i></NavLink>
+                <NavLink title='About' to="/about"><i className="fa-solid fa-circle-info fa-lg"></i></NavLink>
+                <NavLink title='Toys' to="/toy"><i className="fa-solid fa-gamepad fa-lg"></i></NavLink>
+                <NavLink title='Dashboard' to="/dashboard"><i className="fa-solid fa-chart-line fa-lg"></i></NavLink>
+                {!user && <span className="user-info">
+                    <NavLink title='Login' to="/auth/login"><i className="fa-solid fa-user fa-lg"></i></NavLink>
+                </span>}
             </nav>
-            {!user && <section className="user-info">
-            <NavLink to="/auth/login">Login</NavLink>
-            </section>}
-            {user && <section className="user-info">
+            {user && <div className="user-info">
                 {/* <p>
                     {user.fullname} <span>${user.score.toLocaleString()}</span>
                 </p> */}
                 <button className='logout-btn' onClick={onLogout}>Logout</button>
-            </section>}
+            </div>}
         </header>
     )
 }
