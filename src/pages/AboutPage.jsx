@@ -4,7 +4,6 @@ import GoogleMapReact from 'google-map-react'
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 export function AboutPage() {
-    console.log('import.meta.env.VITE_API_KEY', import.meta.env.VITE_API_KEY)
 
     const [coordinates, setCoordinates] = useState({ lat: 32.0853, lng: 34.7818 })
     const zoom = 11
