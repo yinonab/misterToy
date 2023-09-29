@@ -29,7 +29,7 @@ export function AppHeader() {
                 <NavLink to="/dashboard">Dashboard</NavLink>
             </nav>
             {!user && <section className="user-info">
-                <LoginSignup />
+            <NavLink to="/auth/login">Login</NavLink>
             </section>}
             {user && <section className="user-info">
                 {/* <p>

@@ -15,7 +15,7 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
-    updateScore
+   
 }
 
 window.us = userService
@@ -24,15 +24,18 @@ function getById(userId) {
     return storageService.get(BASE_URL, userId)
 }
 
-async function login({ username, password }) {
+async function signup({ username, password, fullname }) {
+    const user = { username, password, fullname, score: 10000 }
+
     try {
-        const user = await httpService.post(BASE_URL + 'login', { username, password })
-        if (user) {
-            return  _setLoggedinUser(user)
+        const registeredUser = await httpService.post(BASE_URL + 'signup', user)
+        
+        if (registeredUser) {
+            return _setLoggedinUser(registeredUser)
         }
     } catch (err) {
-        console.log('Had issues in login', err)
-        showErrorMsg('Cannot login')
+        console.log('Had issues in signup', err)
+        showErrorMsg('Cannot sign up')
     }
 }
 
