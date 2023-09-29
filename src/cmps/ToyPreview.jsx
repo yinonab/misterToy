@@ -18,19 +18,19 @@ export function ToyPreview({ toy, onRemoveToy, onEditToy }) {
   
 
 
-  const isAdmin = user && user.isAdmin;
+  const isAdmin = user && user.isAdmin
 
   const handleNameClick = () => {
     if (isAdmin) {
-      setIsEditingName(true);
+      setIsEditingName(true)
     }
-  };
+  }
 
   const handlePriceClick = () => {
     if (isAdmin) {
-      setIsEditingPrice(true);
+      setIsEditingPrice(true)
     }
-  };
+  }
 
   const handleBlur = () => {
     setIsEditingName(false)
