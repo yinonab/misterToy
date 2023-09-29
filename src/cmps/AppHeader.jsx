@@ -33,7 +33,7 @@ export function AppHeader() {
                     {/* <p>
                     {user.fullname} <span>${user.score.toLocaleString()}</span>
                 </p> */}
-                    <button className='logout-btn' title='logout' onClick={onLogout}><i class="fa-solid fa-right-from-bracket fa-lg"></i></button>
+                    <button className='logout-btn' title='logout' onClick={onLogout}><i className="fa-solid fa-right-from-bracket fa-lg"></i></button>
                 </span>}
             </nav>
         </header>
