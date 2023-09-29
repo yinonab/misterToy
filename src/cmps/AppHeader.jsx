@@ -4,22 +4,21 @@ import { LoginSignup } from './LoginSignup.jsx'
 import { useSelector } from 'react-redux'
 import { logout } from '../store/actions/user.actions.js'
 
-
-
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
 
-    function onLogout() {
-        logout()
-            .then(() => {
-                showSuccessMsg('Logout successfully')
-            })
-            .catch(err => {
-                console.log('err:', err)
-                showErrorMsg('Cannot logout')
-            })
-    }
+    async function onLogout() {
+        try {
+            await logout()
+            showSuccessMsg('Logout successfully')
 
+        }
+        catch (err) {
+            console.log('err', err)
+            showErrorMsg('Cannot logout')
+
+        }
+    }
     return (
         <header className="app-header full">
             <h1>Toys App</h1>
@@ -38,8 +37,6 @@ export function AppHeader() {
                 </p> */}
                 <button className='logout-btn' onClick={onLogout}>Logout</button>
             </section>}
-           
-
         </header>
     )
 }
