@@ -15,10 +15,17 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
+    getUsers,
+
    
 }
 
 window.us = userService
+
+function getUsers() {
+    // return storageService.query('user')
+    return httpService.get(`user`)
+}
 
 function getById(userId) {
     return storageService.get(BASE_URL, userId)
