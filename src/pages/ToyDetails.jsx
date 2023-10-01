@@ -4,10 +4,12 @@ import { toyService } from "../services/toy.service.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
+import { reviewService } from "../services/reviewService.js"
 
 
 export function ToyDetails() {
     const [msg, setMsg] = useState(utilService.getEmptyMsg())
+    const [review, setReview] = useState(utilService.getEmptyReview())
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
@@ -33,6 +35,11 @@ export function ToyDetails() {
         const value = ev.target.value
         setMsg((msg) => ({ ...msg, [field]: value }))
     }
+    function handleReviewChange(ev) {
+        const field = ev.target.name
+        const value = ev.target.value
+        setReview((review) => ({ ...review, [field]: value }))
+    }
 
     async function onSaveMsg(ev) {
         ev.preventDefault()
@@ -44,6 +51,16 @@ export function ToyDetails() {
         setMsg(utilService.getEmptyMsg())
         showSuccessMsg('Msg saved!')
     }
+    async function onSaveReview(ev) {
+        ev.preventDefault()
+        const savedReview = await reviewService.addReview(review.txt,review._id )
+        setToy((prevReview) => ({
+            ...prevReview,
+            txt: { ...prevReview.txt || '', savedReview },
+        }))
+        setReview(utilService.getEmptyReview())
+        showSuccessMsg('Review saved!')
+    }
 
     async function onRemoveMsg(msgId) {
         const removedMsgId = await toyService.removeMsg(toy._id, msgId)
@@ -53,7 +70,16 @@ export function ToyDetails() {
         }))
         showSuccessMsg('Msg removed!')
     }
-    const { txt } = msg
+    async function onRemoveReview(reviewId) {
+        const removedReviewId = await reviewService.removeReview(reviewId)
+        setToy((prevReview) => ({
+            ...prevReview,
+            txt: prevReview.txt.filter((txt) => removedReviewId !== review.id),
+        }))
+        showSuccessMsg('Review removed!')
+    }
+    const { txtM } = msg
+    const { txtR } = review
     if (!toy) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
 
     return (
@@ -76,7 +102,7 @@ export function ToyDetails() {
                 <input
                     type="text"
                     name="txt"
-                    value={txt}
+                    value={txtM}
                     placeholder="Enter Your Message"
                     onChange={handleMsgChange}
                     required
@@ -84,6 +110,32 @@ export function ToyDetails() {
                 />
                 <button>Send</button>
             </form>
+
+            <h5 className="toy-description-heading">Reviews</h5>
+            <ul>
+                {toy.reviews &&
+                    toy.reviews.map((review) => (
+                        <li key={review.id}>
+                            By: {review.by ? review.by.fullname : 'Unknown User'}, {review.txt}
+                            <button type="button" onClick={() => onRemoveReview(review.id)}>
+                                ❌
+                            </button>
+                        </li>
+                    ))}
+            </ul>
+
+            <form className="login-form" onSubmit={onSaveReview}>
+                <input
+                    type="text"
+                    name="txt"
+                    value={txtR}
+                    placeholder="Write a Review"
+                    onChange={handleReviewChange}
+                    required
+                />
+                <button>Submit Review</button>
+            </form>
+
             <h5 className="toy-created-date">Created Date: {toy.createdAt}</h5>
             <h5 className="toy-labels">Labels: {toy.labels.join(',')}</h5>
             <h1 className="toy-emoji">{toy.icon}</h1>
