@@ -9,7 +9,10 @@ export const utilService = {
     getAssetSrc,
     makeLabel,
     getTimeFromStamp,
-    randomTrueFalse, makeImage,getEmptyMsg
+    randomTrueFalse,
+     makeImage,
+     getEmptyMsg,
+     getEmptyReview
 }
 
 function makeId(length = 6) {
@@ -205,6 +208,11 @@ function randomTrueFalse() {
 
 }
 function getEmptyMsg() {
+    return {
+      txt: '',
+    }
+  }
+function getEmptyReview() {
     return {
       txt: '',
     }
