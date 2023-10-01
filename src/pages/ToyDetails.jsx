@@ -4,8 +4,7 @@ import { toyService } from "../services/toy.service.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
-import { reviewService } from "../services/reviewService.js"
-
+import { reviewService } from "../services/review.service.js"
 
 export function ToyDetails() {
     const [msg, setMsg] = useState(utilService.getEmptyMsg())
@@ -23,18 +22,19 @@ export function ToyDetails() {
         try {
             const toy = await toyService.getById(toyId)
             setToy(toy)
-
         } catch (err) {
             console.log('Had issues in toy details', err)
             showErrorMsg('Cannot load toy')
             navigate('/toy')
         }
     }
+
     function handleMsgChange(ev) {
         const field = ev.target.name
         const value = ev.target.value
         setMsg((msg) => ({ ...msg, [field]: value }))
     }
+
     function handleReviewChange(ev) {
         const field = ev.target.name
         const value = ev.target.value
@@ -51,12 +51,14 @@ export function ToyDetails() {
         setMsg(utilService.getEmptyMsg())
         showSuccessMsg('Msg saved!')
     }
+
     async function onSaveReview(ev) {
         ev.preventDefault()
-        const savedReview = await reviewService.addReview(review.txt,review._id )
-        setToy((prevReview) => ({
-            ...prevReview,
-            txt: { ...prevReview.txt || '', savedReview },
+        const savedReview = await reviewService.add({ txt: review.txt, aboutToyId: toy._id })
+        // Update the toy's reviews, not the toy's text
+        setToy((prevToy) => ({
+            ...prevToy,
+            reviews: [...(prevToy.reviews || []), savedReview],
         }))
         setReview(utilService.getEmptyReview())
         showSuccessMsg('Review saved!')
@@ -70,14 +72,17 @@ export function ToyDetails() {
         }))
         showSuccessMsg('Msg removed!')
     }
+
     async function onRemoveReview(reviewId) {
-        const removedReviewId = await reviewService.removeReview(reviewId)
-        setToy((prevReview) => ({
-            ...prevReview,
-            txt: prevReview.txt.filter((txt) => removedReviewId !== review.id),
+        const removedReviewId = await reviewService.remove(reviewId)
+        // Update the toy's reviews, not the toy's text
+        setToy((prevToy) => ({
+            ...prevToy,
+            reviews: prevToy.reviews.filter((review) => removedReviewId !== review.id),
         }))
         showSuccessMsg('Review removed!')
     }
+
     const { txtM } = msg
     const { txtR } = review
     if (!toy) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
@@ -116,7 +121,7 @@ export function ToyDetails() {
                 {toy.reviews &&
                     toy.reviews.map((review) => (
                         <li key={review.id}>
-                            By: {review.by ? review.by.fullname : 'Unknown User'}, {review.txt}
+                            By: {review.by ? user.fullname : 'Unknown User'}, {review.txt}
                             <button type="button" onClick={() => onRemoveReview(review.id)}>
                                 ❌
                             </button>
@@ -145,4 +150,3 @@ export function ToyDetails() {
         </section>
     )
 }
-
