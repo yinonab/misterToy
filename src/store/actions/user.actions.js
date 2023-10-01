@@ -1,5 +1,6 @@
 import { userService } from "../../services/user.service.js";
-import { SET_USER, SET_USER_SCORE } from "../reducers/user.reducer.js";
+import { showErrorMsg } from "../../services/event-bus.service.js";
+import { SET_USER, SET_USER_SCORE, SET_WATCHED_USER } from "../reducers/user.reducer.js";
 import { store } from "../store.js";
 
 
@@ -44,5 +45,15 @@ export async function checkout(diff) {
     } catch (err) {
         console.error('user actions -> Cannot checkout:', err)
         throw err
+    }
+}
+
+export async function loadUser(userId) {
+    try {
+        const user = await userService.getById(userId)
+        store.dispatch({ type: SET_WATCHED_USER, user })
+    } catch (err) {
+        showErrorMsg('Cannot load user')
+        console.log('Cannot load user', err)
     }
 }

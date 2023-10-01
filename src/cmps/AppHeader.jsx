@@ -26,7 +26,12 @@ export function AppHeader() {
                 <NavLink title='About' to="/about"><i className="fa-solid fa-circle-info fa-lg"></i></NavLink>
                 <NavLink title='Toys' to="/toy"><i className="fa-solid fa-gamepad fa-lg"></i></NavLink>
                 <NavLink title='Dashboard' to="/dashboard"><i className="fa-solid fa-chart-line fa-lg"></i></NavLink>
-                <NavLink title='Reviews' to="/review">Reviews</NavLink>
+                <NavLink title='Reviews' to="/review"><i className="fa-solid fa-comments fa-lg"></i></NavLink>
+                {user && (
+                    <NavLink title='User Profile' to={`/user/${user._id}`}>
+                        <i className="fa-regular fa-address-card fa-lg"></i>
+                    </NavLink>
+                )}
                 {!user && <span className="user-info">
                     <NavLink title='Login' to="/auth/login"><i className="fa-solid fa-user fa-lg"></i></NavLink>
                 </span>}
