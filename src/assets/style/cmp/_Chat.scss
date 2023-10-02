@@ -1,0 +1,65 @@
+.chat {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: $clr12; /* Background color */
+    border: 1px solid black; /* Border color */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  
+    .chat-title {
+      font-size: 16px; /* Adjust font size */
+      color: white; /* Title text color */
+      font-family: 'Indie Flower', cursive;
+    }
+  
+    .chat-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc; /* Input border color */
+        border-radius: 5px;
+        outline: none;
+      }
+  
+      .chat-btn {
+        /* Define your button styles here */
+        font-size: small;
+      }
+    }
+  
+    .chat-ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+  
+      li {
+        position: relative;
+        max-width: 70%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px; /* Adjust font size */
+        clear: both;
+        background-color: rgba(255, 255, 255, 0.65); /* Message bubble background color */
+        color: black; /* Message text color */
+  
+        &::before {
+          content: '';
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          background-color: #fff; /* Bubble color */
+          border-radius: 50%;
+          left: -6px; /* Adjust the left position of the bubble */
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
