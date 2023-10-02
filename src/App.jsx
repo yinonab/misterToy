@@ -14,6 +14,7 @@ import { LoginSignup } from './cmps/LoginSignup'
 import { UserProfile } from './pages/UserProfile'
 
 
+import { ReviewExplore } from './pages/ReviewExplore'
 export function App() {
 
     return (

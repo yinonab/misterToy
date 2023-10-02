@@ -20,14 +20,8 @@ export const userService = {
 
 window.us = userService
 
-function getUsers() {
-    // return storageService.query('user')
-    return httpService.get(`users`)
-}
-
-async function getById(userId) {
-    const user = await httpService.get(`user/${userId}`)
-    return user
+function getById(userId) {
+    return storageService.get(BASE_URL, userId)
 }
 
 async function signup({ username, password, fullname }) {
