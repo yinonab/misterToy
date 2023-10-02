@@ -15,14 +15,22 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
+    getUsers
 
 }
 
 window.us = userService
 
-function getById(userId) {
-    return storageService.get(BASE_URL, userId)
+function getUsers() {
+    // return storageService.query('user')
+    return httpService.get(`users`)
 }
+
+async function getById(userId) {
+    const user = await httpService.get(`user/${userId}`)
+    return user
+}
+
 
 async function signup({ username, password, fullname }) {
     const user = { username, password, fullname, score: 10000 }

@@ -17,7 +17,7 @@ console.log('user', user);
             <h1>User Profile</h1>
             {user && <div>
                 <h3>
-                    {user.username}
+                    {user.fullname}
                 </h3>
                 <pre>
                     {JSON.stringify(user, null, 2)}
