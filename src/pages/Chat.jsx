@@ -57,25 +57,9 @@ export function Chat({ toy, toyId }) {
 
     return (
         <section className="chat">
-            <h2>Lets Chat about {toy.name}</h2>
+            <h2 className='chat-title'>Lets Chat about {toy.name}</h2>
 
-            {/* <label>
-                <input type="checkbox" name="isBotMode" checked={isBotMode}
-                    onChange={({ target }) => setIsBotMode(target.checked)} />
-                Bot Mode
-            </label> */}
-
-            {/* <div>
-               
-                    <input type="text" value={toyId}
-                        checked={topic === toyId} onChange={({ target }) => setTopic(target.value)} />
-                    {toy.name}
-                
-
-
-            </div> */}
-
-            <form onSubmit={sendMsg}>
+            <form className='chat-form' onSubmit={sendMsg}>
                 <input
                     type="text"
                     placeholder='Chat'
@@ -84,11 +68,11 @@ export function Chat({ toy, toyId }) {
                     name="txt"
                     autoComplete="off"
                 />
-                <button>Send</button>
+                <button className='chat-btn'>Send</button>
             </form>
 
-            <ul>
-                {msgs.map((msg, idx) => (<li key={idx}>{msg.from}: {msg.txt}</li>))}
+            <ul className='chat-ul'>
+                {msgs.map((msg, idx) => (<li className='chat-li' key={idx}>{msg.from}: {msg.txt}</li>))}
             </ul>
         </section>
     )
