@@ -27,16 +27,17 @@ export function userReducer(state = initialState, action = {}) {
 
         // User
         case SET_USER:
-            return { ...state, loggedinUser: action.user }
+            return  { ...state, loggedinUser: action.user }
+            
         case SET_USERS:
-            newState = { ...state, users: action.users }
-            break
+            return   { ...state, users: action.users }
+            
         case SET_WATCHED_USER:
-            newState = { ...state, watchedUser: action.user }
-            break
+            return   { ...state, watchedUser: action.user }
+            
         case SET_SCORE:
-            newState = { ...state, user: { ...state.user, score: action.score } }
-            break
+            return   { ...state, user: { ...state.user, score: action.score } }
+            
         case SET_USER_SCORE:
             const user = { ...state.loggedinUser, score: action.score }
             return { ...state, loggedinUser: user }

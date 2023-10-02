@@ -12,10 +12,11 @@ export function ToyDetails() {
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
-    const user = useSelector(storeState => storeState.userModule.loggedinUser)
+    const [reviews, setReviews] = useState([])
 
     useEffect(() => {
         loadToy()
+        loadReviews()
     }, [toyId])
 
     async function loadToy() {
@@ -28,6 +29,20 @@ export function ToyDetails() {
             navigate('/toy')
         }
     }
+    async function loadReviews() {
+        try {
+            // Create a filter object with both aboutToyId and additional filters
+            const filter = { name: 'exampleFilter', sort: 'exampleSort' };
+
+            // Fetch reviews based on aboutToyId and additional filters
+            const reviews = await reviewService.query({ aboutToyId: toyId });
+            setReviews(reviews);
+        } catch (err) {
+            console.log('Had issues loading reviews', err);
+            showErrorMsg('Cannot load reviews');
+        }
+    }
+
 
     function handleMsgChange(ev) {
         const field = ev.target.name
@@ -53,16 +68,15 @@ export function ToyDetails() {
     }
 
     async function onSaveReview(ev) {
-        ev.preventDefault()
-        const savedReview = await reviewService.add({ txt: review.txt, aboutToyId: toy._id })
-        // Update the toy's reviews, not the toy's text
-        setToy((prevToy) => ({
-            ...prevToy,
-            reviews: [...(prevToy.reviews || []), savedReview],
-        }))
-        setReview(utilService.getEmptyReview())
-        showSuccessMsg('Review saved!')
+        ev.preventDefault();
+        const savedReview = await reviewService.add({ txt: review.txt, aboutToyId: toy._id });
+        // Update the reviews state with the new review
+        setReviews((prevReviews) => [...prevReviews, savedReview]);
+        setReview(utilService.getEmptyReview());
+        showSuccessMsg('Review saved!');
+        console.log('savedReview:', savedReview)
     }
+
 
     async function onRemoveMsg(msgId) {
         const removedMsgId = await toyService.removeMsg(toy._id, msgId)
@@ -74,17 +88,26 @@ export function ToyDetails() {
     }
 
     async function onRemoveReview(reviewId) {
-        const removedReviewId = await reviewService.remove(reviewId)
-        // Update the toy's reviews, not the toy's text
-        setToy((prevToy) => ({
-            ...prevToy,
-            reviews: prevToy.reviews.filter((review) => removedReviewId !== review.id),
-        }))
-        showSuccessMsg('Review removed!')
+        try {
+            const removedReviewId = await reviewService.remove(reviewId);
+
+            // Update the reviews state by filtering out the removed review
+            setReviews((prevReviews) => prevReviews.filter((review) => review._id !== removedReviewId));
+            const reviews = await reviewService.query({ aboutToyId: toyId });
+            console.log('reviews:', reviews)
+            setReviews(reviews);
+            showSuccessMsg('Review removed!');
+        } catch (err) {
+            console.error('Error removing review:', err);
+            showErrorMsg('Failed to remove review');
+        }
     }
 
+
+
+
     const { txtM } = msg
-    const { txtR } = review
+    // const { txtR } = review
     if (!toy) return <div className="center-spinner"> <div className="lds-facebook"><div></div><div></div><div></div></div></div>
 
     return (
@@ -118,22 +141,22 @@ export function ToyDetails() {
 
             <h5 className="toy-description-heading">Reviews</h5>
             <ul>
-                {toy.reviews &&
-                    toy.reviews.map((review) => (
-                        <li key={review.id}>
-                            By: {review.by ? user.fullname : 'Unknown User'}, {review.txt}
-                            <button type="button" onClick={() => onRemoveReview(review.id)}>
-                                ❌
-                            </button>
-                        </li>
-                    ))}
+                {reviews.map((review) => (
+                    <li key={review._id}>
+                        By: {review.byUser.fullname}, {review.txt}
+                        <button type="button" onClick={() => onRemoveReview(review._id)}>
+                            ❌
+                        </button>
+                    </li>
+                ))}
             </ul>
+
 
             <form className="login-form" onSubmit={onSaveReview}>
                 <input
                     type="text"
                     name="txt"
-                    value={txtR}
+                    value={review.txt}
                     placeholder="Write a Review"
                     onChange={handleReviewChange}
                     required
