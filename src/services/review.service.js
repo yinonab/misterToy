@@ -9,11 +9,18 @@ export const reviewService = {
   remove
 }
 
-function query(filterBy) {
-  var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
-  return httpService.get(`review${queryStr}`)
-  // return storageService.query('review')
+function query(filterBy= {}) {
+  var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`;
+  console.log(filterBy);
+  if (filterBy.aboutToyId) {
+    queryStr += `&aboutToyId=${filterBy.aboutToyId}`;
+  }
+
+  return httpService.get(`review`, filterBy);
+  // return httpService.get(`review${queryStr}`);
 }
+
+
 
 async function remove(reviewId) {
   await httpService.delete(`review/${reviewId}`)
