@@ -64,6 +64,7 @@ export async function loadUser(userId) {
         store.dispatch({ type: SET_WATCHED_USER, user })
     } catch (err) {
         showErrorMsg('Cannot load user')
+        
         console.log('Cannot load user', err)
     }
 }

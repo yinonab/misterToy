@@ -40,6 +40,7 @@ export function UserProfile() {
                 <h3>
                     {user.fullname}
                 </h3>
+                <img src={user.imgUrl} alt="user Img" />
                 <ul>
                     {reviews.map((review) => (
                         <li key={review._id}>

@@ -30,8 +30,8 @@ async function getById(userId) {
 //     return httpService.get(BASE_URL, userId)
 // }
 
-async function signup({ username, password, fullname }) {
-    const user = { username, password, fullname, score: 10000 }
+async function signup({ username, password, fullname,imgUrl }) {
+    const user = { username, password, fullname,imgUrl:imgUrl}
 
     try {
         const registeredUser = await httpService.post(BASE_URL + 'signup', user)
@@ -74,6 +74,11 @@ function _setLoggedinUser(user) {
     const userToSave = { _id: user._id, fullname: user.fullname, isAdmin: user.isAdmin }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
     return userToSave
+}
+function saveLocalUser(user) {
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
 // Test Data

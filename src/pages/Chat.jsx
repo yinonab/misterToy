@@ -11,7 +11,7 @@ export function Chat({ toy, toyId }) {
 
     const loggedInUser = useSelector(storeState => storeState.userModule.loggedinUser)
 
-    const botTimeoutRef = useRef()
+    // const botTimeoutRef = useRef()
 
     useEffect(() => {
         socketService.emit(SOCKET_EMIT_SET_TOPIC, toyId)
@@ -38,7 +38,7 @@ export function Chat({ toy, toyId }) {
 
     function sendMsg(ev) {
         ev.preventDefault()
-        const from = loggedInUser?.fullname || 'Me'
+        const from = loggedInUser?.fullname || 'Guest'
         const newMsg = { from, txt: msg }
         console.log('newMsg:', newMsg)
         socketService.emit(SOCKET_EMIT_SEND_MSG, newMsg)

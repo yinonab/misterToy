@@ -3,6 +3,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
 import { login, signup } from '../store/actions/user.actions.js'
 import { useNavigate } from 'react-router-dom'
+import { ImgUploader } from './ImgUploader.jsx'
 
 
 
@@ -11,6 +12,7 @@ function getEmptyCredentials() {
         fullname: '',
         username: '',
         password: '',
+        imgUrl:''
     }
 }
 
@@ -19,24 +21,25 @@ export function LoginSignup() {
     const [credentials, setCredentials] = useState(getEmptyCredentials())
     const [isSignupState, setIsSignupState] = useState(false)
     const navigate = useNavigate()
-    
-    
-    
+
+
+
+
     function handleCredentialsChange(ev) {
         const field = ev.target.name
         const value = ev.target.value
         setCredentials(credentials => ({ ...credentials, [field]: value }))
     }
-    
+
     async function onSubmit(ev) {
         ev.preventDefault()
-        
+
         if (isSignupState) {
             try {
                 const user = await signup(credentials)
                 showSuccessMsg(`Welcome ${user.fullname}`)
                 navigate('/toy')
-                
+
             }
             catch (err) {
                 showErrorMsg('Cannot signup')
@@ -57,6 +60,9 @@ export function LoginSignup() {
 
     function onToggleSignupState() {
         setIsSignupState(isSignupState => !isSignupState)
+    }
+    function onUploaded(imgUrl) {
+        setCredentials({ ...credentials, imgUrl })
     }
 
     const { username, password, fullname } = credentials
@@ -86,16 +92,20 @@ export function LoginSignup() {
                 />
 
                 {isSignupState && (
-                    <input
-                        className="login-input"
-                        type="text"
-                        name="fullname"
-                        value={fullname}
-                        placeholder="Full name"
-                        onChange={handleCredentialsChange}
-                        required
-                    />
+                    <>
+                        <input
+                            className="login-input"
+                            type="text"
+                            name="fullname"
+                            value={fullname}
+                            placeholder="Full name"
+                            onChange={handleCredentialsChange}
+                            required
+                        />
+                        <ImgUploader onUploaded={onUploaded} />
+                    </>
                 )}
+
 
                 <button className="login-button">{isSignupState ? 'Signup' : 'Login'}</button>
             </form>
