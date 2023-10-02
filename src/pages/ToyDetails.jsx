@@ -5,6 +5,7 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
 import { reviewService } from "../services/review.service.js"
+import { Chat } from "./Chat.jsx"
 
 export function ToyDetails() {
     const [msg, setMsg] = useState(utilService.getEmptyMsg())
@@ -169,6 +170,7 @@ export function ToyDetails() {
             <h1 className="toy-emoji">{toy.icon}</h1>
             <h5 className="toy-description-heading">Description</h5>
             <p className="toy-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
+            <Chat toy={toy} toyId={toyId}/>
             <Link className="back-link" to="/toy">Back</Link>
         </section>
     )
