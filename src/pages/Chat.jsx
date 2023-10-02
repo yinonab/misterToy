@@ -40,7 +40,6 @@ export function Chat({ toy, toyId }) {
         ev.preventDefault()
         const from = loggedInUser?.fullname || 'Guest'
         const newMsg = { from, txt: msg }
-        console.log('newMsg:', newMsg)
         socketService.emit(SOCKET_EMIT_SEND_MSG, newMsg)
         // if (isBotMode) sendBotResponse()
         // for now - we add the msg ourself
@@ -50,7 +49,6 @@ export function Chat({ toy, toyId }) {
 
     function handleFormChange(ev) {
         const { value } = ev.target
-        console.log('value:', value)
         setMsg(value) // Update the message text, not the entire message object
     }
 
