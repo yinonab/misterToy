@@ -10,8 +10,7 @@ import { UserMsg } from './cmps/UserMsg'
 import { DashboardPage } from './pages/DashboardPage'
 import { AboutPage } from './pages/AboutPage'
 import { LoginSignup } from './cmps/LoginSignup'
-import { ReviewExplore } from './cmps/ReviewExplore'
-
+import { ReviewExplore } from './pages/ReviewExplore'
 export function App() {
 
     return (
