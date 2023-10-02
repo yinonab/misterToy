@@ -59,6 +59,11 @@ export function Chat({ toy, toyId }) {
         <section className="chat">
             <h2 className='chat-title'>Lets Chat about {toy.name}</h2>
 
+            <div className="wrapper">
+                <ul className='chat-ul'>
+                    {msgs.map((msg, idx) => (<li className='chat-li' key={idx}>{msg.from}: {msg.txt}</li>))}
+                </ul>
+            </div>
             <form className='chat-form' onSubmit={sendMsg}>
                 <input
                     type="text"
@@ -68,12 +73,8 @@ export function Chat({ toy, toyId }) {
                     name="txt"
                     autoComplete="off"
                 />
-                <button className='chat-btn'>Send</button>
+                <button className='chat-btn'><i className="fa-solid fa-arrow-right fa-lg"></i></button>
             </form>
-
-            <ul className='chat-ul'>
-                {msgs.map((msg, idx) => (<li className='chat-li' key={idx}>{msg.from}: {msg.txt}</li>))}
-            </ul>
         </section>
     )
 }
