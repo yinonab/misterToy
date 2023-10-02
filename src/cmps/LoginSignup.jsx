@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom'
 
 function getEmptyCredentials() {
     return {
-        fullname: 'muki muki',
-        username: 'muki',
-        password: 'muki',
+        fullname: '',
+        username: '',
+        password: '',
     }
 }
 
@@ -101,7 +101,7 @@ export function LoginSignup() {
             </form>
 
             <div className="btns">
-                <a className="toggle-signup-link" href="#" onClick={onToggleSignupState}>
+                <a className="toggle-signup-link" onClick={onToggleSignupState}>
                     {isSignupState ? 'Already a member? Login' : 'New user? Signup here'}
                 </a>
             </div>
