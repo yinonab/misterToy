@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 // import { SOCKET_EVENT_REVIEW_ADDED, socketService } from '../services/socket.service'
 
-import { addReview, getActionAddReview, loadReviews, removeReview } from '../store/actions/review.actions'
-import { loadUsers } from '../store/actions/user.actions'
+// import { addReview, getActionAddReview, loadReviews, removeReview } from '../store/actions/review.actions'
+// import { loadUsers } from '../store/actions/user.actions'
 import { reviewService } from '../services/review.service'
 
 export function ReviewExplore() {
-    const users = useSelector(storeState => storeState.userModule.users)
-    const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    // const users = useSelector(storeState => storeState.userModule.users)
+    // const loggedInUser = useSelector(storeState => storeState.userModule.user)
     // const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const [reviews, setReviews] = useState([])
 
@@ -21,7 +20,7 @@ export function ReviewExplore() {
 
     useEffect(() => {
         loadReviews()
-        loadUsers()
+        // loadUsers()
 
         // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
         //     console.log('GOT from socket', review)
@@ -41,6 +40,7 @@ export function ReviewExplore() {
             const reviews = await reviewService.query();
             console.log('reviews:', reviews)
             setReviews(reviews);
+            showSuccessMsg('Reviews load Successfully');
         } catch (err) {
             console.log('Had issues loading reviews', err);
             showErrorMsg('Cannot load reviews');

@@ -15,6 +15,9 @@ function query(filterBy= {}) {
   if (filterBy.aboutToyId) {
     queryStr += `&aboutToyId=${filterBy.aboutToyId}`;
   }
+  if (filterBy.byUserId) {
+    queryStr += `&byUserId=${filterBy.byUserId}`;
+  }
 
   return httpService.get(`review`, filterBy);
   // return httpService.get(`review${queryStr}`);
